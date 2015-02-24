@@ -8,7 +8,7 @@ var $ = require('gulp-load-plugins')();
 
 gulp.task('scripts', function () {
   return gulp.src(paths.src + '/{app,components}/**/*.coffee')
-    .pipe($.coffeelint())
+    .pipe($.coffeelint({max_line_length: false}))
     .pipe($.coffeelint.reporter())
     .pipe($.coffee())
     .on('error', function handleError(err) {
@@ -18,4 +18,3 @@ gulp.task('scripts', function () {
     .pipe(gulp.dest(paths.tmp + '/serve/'))
     .pipe($.size())
 });
-

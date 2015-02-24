@@ -1,0 +1,18 @@
+.main
+  leaflet.main__map(center='settings.center', tiles="settings.tiles", maxbounds="settings.maxbounds", defaults="settings.defaults")
+  .main__chart
+    .main__chart__stack.main__chart__stack--dead(style="width:45%") 
+      span.main__chart__stack__label {{ 'dead' | translate }}
+      span.main__chart__stack__figure 45
+    .main__chart__stack.main__chart__stack--cured(style="width:35%")
+      span.main__chart__stack__label {{ 'cured' | translate }}
+      span.main__chart__stack__figure 35
+    .main__chart__stack.main__chart__stack--msf-cured(style="width:20%")
+      span.main__chart__stack__label {{ 'cured_by_msf' | translate }}
+      span.main__chart__stack__figure 20
+      
+  .main__timeline
+    .main__timeline__cursor(data-day="13", data-month="june")
+  .main__weeks
+    .main__weeks__slot(ng-repeat="victims in weeks")
+      .main__weeks__slot__victim(ng-repeat="victim in victims track by $index")

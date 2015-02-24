@@ -1,7 +1,7 @@
 angular.module "msfEbola"
   .controller "MainCtrl", ($scope) ->
     # Create 52 slots for each week
-    $scope.weeks = new Array(52)
+    $scope.weeks = new Array(20)
     # Populate week's slot with fake data
     for week, i in $scope.weeks
       victims = ~~(50 * Math.random())

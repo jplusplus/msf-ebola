@@ -1,0 +1,53 @@
+.menu {
+  position:fixed;
+  top:0;
+  left:0;
+  bottom:0;
+  width:@menu-width;
+  background: @brand-primary;
+
+  &, a {
+    color:white;
+  }
+
+  &__logo {
+    margin:20px auto;
+    background: url("../assets/images/msf-logo.png") no-repeat;
+    background-size: 100% auto;
+    width: 208px;
+    height: 89px;
+    display:block;
+  }
+
+  &__headline {
+    font-style:italic;
+    padding:10px 0;
+    font-size:0.9em;
+    text-align:center;
+    font-weight:100;
+    line-height:1em;
+  }
+
+  &__links {
+    margin-top:20px;
+
+    li > a {
+      display:block;
+      text-align:center;
+      padding:10px;
+      color:white;
+      font-size:1.3em;
+      border-bottom:2px solid mix(@brand-primary, white, 90);
+
+      &:hover, &:active {
+        background:white;
+        color:@brand-primary;
+        text-decoration:none;
+      }
+    }
+  }
+
+  &__social {
+    margin-top:20px;
+  }
+}

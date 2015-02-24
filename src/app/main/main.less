@@ -1,6 +1,8 @@
 .main {
+  position:relative;
   padding-bottom:500px;
   background:white;
+  margin-left:@menu-width;
 
   &__chart {
     position:absolute;
@@ -57,18 +59,22 @@
   &__map {
     background:#CCD1D3;
     height:500px;
+    position:relative;
+    border-bottom:3px solid mix(black, white);
+    margin-bottom:-3px;
   }
 
   &__timeline {
     height:3px;
     background:black;
     position:relative;
+    max-width:100%;
+    margin:auto;
 
     &__cursor {
       position:absolute;
       left:0;
       height:100%;
-      width:40%;
       background: @brand-primary;
 
       &:after {
@@ -104,10 +110,11 @@
   }
 
   &__weeks {
-
-    margin-top:10px;
+    margin:auto;
+    margin-top:2px;
     height:5px;
     white-space:nowrap;
+    max-width:100%;
 
     &__slot {
       width:100%/52%;

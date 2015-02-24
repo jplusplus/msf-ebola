@@ -38,8 +38,8 @@ api_key: <ADD YOUR API KEY HERE>
 
 files:
   -
-    source: /locale/en/LC_MESSAGES/messages.json
-    translation: /locale/%two_letters_code%/LC_MESSAGES/%original_file_name%
+    source: /src/assets/json/en.json
+    translation: /src/assets/json/%two_letters_code%.json
 ```
 
 You can now run ```make crowdin_download``` to grab translations from the Crowdin website.

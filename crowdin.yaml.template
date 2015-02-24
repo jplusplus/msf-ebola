@@ -1,0 +1,9 @@
+project_identifier: msf-ebola
+base_url: https://api.crowdin.com
+preserve_hierarchy: true
+api_key: <ADD YOUR API KEY HERE>
+
+files:
+  -
+    source: /src/assets/json/en.json
+    translation: /src/assets/json/%two_letters_code%.json

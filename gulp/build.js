@@ -10,7 +10,7 @@ var $ = require('gulp-load-plugins')({
 
 gulp.task('partials', ['markups'], function () {
   return gulp.src([
-    paths.src + '/{app,components}/**/*.html',
+    paths.tmp + '/serve/{app,components}/**/*.html',
     paths.tmp + '/{app,components}/**/*.html'
   ])
     .pipe($.minifyHtml({
@@ -25,7 +25,7 @@ gulp.task('partials', ['markups'], function () {
 });
 
 gulp.task('html', ['inject', 'partials'], function () {
-  var partialsInjectFile = gulp.src(paths.tmp + '/partials/templateCacheHtml.js', { read: false });
+  var partialsInjectFile = gulp.src(paths.tmp + '/partials/p.js', { read: false });
   var partialsInjectOptions = {
     starttag: '<!-- inject:partials -->',
     ignorePath: paths.tmp + '/partials',

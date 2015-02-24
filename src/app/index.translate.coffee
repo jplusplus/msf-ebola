@@ -2,7 +2,7 @@ angular.module "msfEbola"
   .config ($translateProvider) ->
     $translateProvider
       .useStaticFilesLoader
-        prefix: 'assets/locale/'
+        prefix: 'assets/json/'
         suffix: '.json'
       .registerAvailableLanguageKeys ['en', 'fr'],
         'en_US': 'en'

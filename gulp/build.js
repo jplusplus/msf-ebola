@@ -97,3 +97,9 @@ gulp.task('clean', function (done) {
 });
 
 gulp.task('build', ['html', 'images', 'fonts', 'misc', 'assets']);
+
+gulp.task('deploy', ['build'], function() {
+  gulp.src("./dist/**/*").pipe($.ghPages({
+    remoteUrl: "git@github.com:jplusplus/msf-ebola.git"
+  }));
+});

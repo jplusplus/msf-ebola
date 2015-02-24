@@ -80,8 +80,20 @@ gulp.task('misc', function () {
     .pipe(gulp.dest(paths.dist + '/'));
 });
 
+gulp.task('assets:dist', function () {
+  return gulp.src('src/assets/{fonts,json}/**/*')
+    .pipe(gulp.dest('dist/assets/'));
+});
+
+gulp.task('assets:tmp', function () {
+  return gulp.src('dist/assets/{fonts,json}/**/*')
+    .pipe(gulp.dest('.tmp/assets/'));
+});
+
+gulp.task('assets', ['assets:dist', 'assets:tmp']);
+
 gulp.task('clean', function (done) {
   $.del([paths.dist + '/', paths.tmp + '/'], done);
 });
 
-gulp.task('build', ['html', 'images', 'fonts', 'misc']);
+gulp.task('build', ['html', 'images', 'fonts', 'misc', 'assets']);

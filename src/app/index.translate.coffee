@@ -1,3 +1,4 @@
+
 angular.module "msfEbola"
   .config ($translateProvider) ->
     $translateProvider
@@ -18,5 +19,5 @@ angular.module "msfEbola"
         ]
         return if avalaibleKeys.indexOf(lang) is -1 then 'en' else lang
       .fallbackLanguage ['en', 'fr']
-      .useMessageFormatInterpolation()
+      #.useMessageFormatInterpolation()
       .useCookieStorage()

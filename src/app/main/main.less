@@ -3,6 +3,11 @@
   padding-bottom:500px;
   background:white;
   margin-left:@menu-width;
+  .transition(0.7s);
+
+  @media (max-width: @screen-sm-max) {
+    margin-left:0;
+  }
 
   &__chart {
     position:absolute;
@@ -69,7 +74,7 @@
     background:black;
     position:relative;
     max-width:100%;
-    margin:auto;
+    margin:0 20px;
 
     &__cursor {
       position:absolute;
@@ -110,7 +115,7 @@
   }
 
   &__weeks {
-    margin:auto;
+    margin:0 20px;
     margin-top:2px;
     height:5px;
     white-space:nowrap;

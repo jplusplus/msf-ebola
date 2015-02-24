@@ -5,6 +5,12 @@
   bottom:0;
   width:@menu-width;
   background: @menu-bg;
+  .transition(0.7s);
+
+  @media (max-width: @screen-sm-max) {
+    .translate(-100%, 0);
+  }
+
 
   &, a {
     color:white;

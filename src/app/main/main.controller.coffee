@@ -2,7 +2,7 @@ angular.module "msfEbola"
   .controller "MainCtrl", ($scope, main, days, centers) ->
     $scope.months = main.months
     # Progression of the draggable slider
-    $scope.progress = 100
+    $scope.progress = 0
     # Create a slot for every weeks
     $scope.weeks = {}
     # Count weeks

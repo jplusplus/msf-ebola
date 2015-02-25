@@ -12,6 +12,7 @@
   }
 
   &__chart {
+    z-index:@zindex-main + 10;
     position:absolute;
     top:0;
     left:0;
@@ -69,6 +70,7 @@
   }
 
   &__map {
+    z-index:@zindex-main - 10;
     background:#CCD1D3;
     height:500px;
     position:relative;
@@ -77,6 +79,7 @@
   }
 
   &__timeline {
+    z-index:@zindex-main + 10;
     height:3px;
     background:black;
     position:relative;

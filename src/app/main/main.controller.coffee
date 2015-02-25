@@ -1,5 +1,6 @@
 angular.module "msfEbola"
   .controller "MainCtrl", ($scope, main) ->
+    $scope.months = main.months
     # Progression of the draggable slider
     $scope.progress = 0
     # Stops the animation

@@ -1,8 +1,10 @@
 angular.module "msfEbola"
   .constant "main",
-    start: new Date(2014, 3, 17)
+    start: new Date(2014, 2, 17)
     weeks: 52
     duration: 60*1000
+    months: [ 'january', 'february', 'march', 'april', 'may', 'june', 'july',
+      'august', 'september', 'october', 'november', 'december', ]      
     settings:
       maxbounds:
         southWest: L.latLng(90, 180)

@@ -20,7 +20,8 @@ angular.module('msfEbola')
         $document.off 'mouseup', mouseup
 
       scope.$watch (-> ngModel.$viewValue), (px)->
-        element.css cursor: 'grab', left: px + '%'
+        x = (px or 0)/100 * parent.width()
+        element.css cursor: 'grab', left: (px or 0) + '%'
 
       element.on 'mousedown', (event) ->
         # Prevent default dragging of selected content

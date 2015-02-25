@@ -4,6 +4,7 @@
   padding-bottom:500px;
   background:white;
   margin-left:@menu-width;
+  overflow:hidden;
   .transition(0.7s);
 
   @media (max-width: @screen-sm-max) {
@@ -82,41 +83,40 @@
     max-width:100%;
     margin:0 20px;
 
-    &__cursor {
+    &__anchor {
+      font-weight:bold;
+      color:white;
+      text-align:center;
       position:absolute;
       left:0;
-      height:100%;
+      top:50%;
+      .translate(-50%, -50%);
+      width:40px;
+      height:40px;
+      line-height:40px;
+      font-size:1.4em;
       background: @brand-primary;
-
-      &:after {
-        content:attr(data-day);
-        font-weight:bold;
-        color:white;
-        text-align:center;
-        position:absolute;
-        right:0;
-        top:50%;
-        .translate(20px, -50%);
-        width:40px;
-        height:40px;
-        line-height:40px;
-        font-size:1.4em;
-        background:inherit;
-        border-radius:40px/2px;
-      }
+      border-radius:40px/2px;
 
       &:before {
         content:attr(data-month);
         position:absolute;
         bottom:100%;
-        right:0;
+        left:50%;
         color: @brand-primary;
         font-weight:bold;
         text-transform:uppercase;
         width: 200px;
         text-align:center;
-        .translate(50%, -20px);
+        .translate(-50%, 5px);
       }
+    }
+
+    &__cursor {
+      position:absolute;
+      left:0;
+      height:100%;
+      background: @brand-primary;
     }
   }
 

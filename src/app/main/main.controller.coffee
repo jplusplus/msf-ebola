@@ -1,11 +1,16 @@
 angular.module "msfEbola"
   .controller "MainCtrl", ($scope) ->
+    WEEKS = 52
     # Create 52 slots for each week
-    $scope.weeks = new Array(20)
+    $scope.weeks = new Array(WEEKS)
     # Populate week's slot with fake data
     for week, i in $scope.weeks
       victims = ~~(50 * Math.random())
       $scope.weeks[i] = new Array(victims)
+    # Progression of the draggable slider
+    $scope.progress = 20/WEEKS*100
+    # The given slot number must be smaller than the progress
+    $scope.progressFilter = (index)-> (index+1)/WEEKS <= $scope.progress/100
     # Map's settings
     $scope.settings =
       maxbounds:

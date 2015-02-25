@@ -12,7 +12,8 @@
       span.main__chart__stack__figure 20
       
   .main__timeline
-    .main__timeline__cursor(data-day="13", data-month="june", ng-style="{ width: 20/52*100 + '%' }")
+    .main__timeline__cursor(ng-style="{ width: progress + '%' }")
+    .main__timeline__anchor(draggable, ng-model="progress", data-month="june") {{ 52 * progress/100 | number:0 }}
   .main__weeks
-    .main__weeks__slot(ng-repeat="victims in weeks")
-      .main__weeks__slot__victim(ng-repeat="victim in victims track by $index")
+    .main__weeks__slot(ng-repeat="victims in ::weeks", ng-show="progressFilter($index)")
+      .main__weeks__slot__victim(ng-repeat="victim in ::victims track by $index")

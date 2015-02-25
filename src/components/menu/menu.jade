@@ -3,14 +3,14 @@ a.menu-toggler(ng-click="visibleMenu = !visibleMenu", ng-class="{'menu-toggler--
 .menu(ng-class="{'menu--collapse': !visibleMenu}")
   a.menu__logo(tile="Médecins Sans Frontières")
   .menu__headline
-    | 1 year of MSF actions against Ebola
+    |  {{ 'msf_headline' | translate }}
   ul.menu__links.list-unstyled
     li
-      a About
+      a {{ 'about' | translate }}
     li
-      a Support
+      a {{ 'support' | translate }}
     li
-      a Language
+      a {{ 'language' | translate }}
   ul.menu__social.list-inline.text-center
     li
       a 
@@ -27,4 +27,4 @@ a.menu-toggler(ng-click="visibleMenu = !visibleMenu", ng-class="{'menu-toggler--
   a.menu__credits(href="http://jplusplus.org", target="_blank")
     img(src="http://logo-js.herokuapp.com/jpp/white/e5725e/", height="20")
     | &nbsp;
-    | By Journalism++
+    | {{ 'by_jpp' | translate }}

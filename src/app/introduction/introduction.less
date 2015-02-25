@@ -1,0 +1,45 @@
+.introduction {
+  z-index:@zindex-introduction;
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  background:black;
+  color:white;
+  .transition(1.2s);
+
+  &--step-0 { background:black; }
+  &--step-1 { background:@brand-primary; }
+  &--step-2 { background:#069E77; }
+  &--step-3 { background:#00e3a6; }
+
+  &__step {
+    padding:0 40px;
+    position:absolute;
+    top:50%;
+    left:50%;
+    font-size:25px;
+    text-align:center;
+    .translate(-50%,-50%);
+    .transition(1.2s);
+
+    &.ng-leave.ng-leave-active,
+    &.ng-enter {
+      filter: blur(100px);
+      opacity:0;
+    }
+
+    &.ng-leave,
+    &.ng-enter.ng-enter-active {
+      filter: blur(0);
+      opacity:1;
+    }
+
+    &__next, &__next:hover {
+      display:block;
+      margin-top:40px;
+      color:inherit;
+    }
+  }
+}

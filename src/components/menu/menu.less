@@ -1,4 +1,28 @@
+.menu-toggler {
+  z-index:@zindex-menu-toggler;
+  position:fixed;
+  left:0;
+  top:15px;
+  height:45px;
+  width:50px;
+  text-align:center;
+  line-height:45px;
+  font-size:30px;
+  color:@brand-primary;
+  .translate(-100%, 0);
+  .transition(0.7s);
+
+  &--active, &--active:hover {
+    color:white;
+  }
+
+  @media (max-width: @screen-sm-max) {
+    .translate(0, 0);
+  }
+}
+
 .menu {
+  z-index:@zindex-menu;
   position:fixed;
   top:0;
   left:0;
@@ -8,7 +32,9 @@
   .transition(0.7s);
 
   @media (max-width: @screen-sm-max) {
-    .translate(-100%, 0);
+    &--collapse {
+      .translate(-100%, 0);
+    }
   }
 
 

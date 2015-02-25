@@ -1,4 +1,6 @@
-.menu
+a.menu-toggler(ng-click="visibleMenu = !visibleMenu", ng-class="{'menu-toggler--active': visibleMenu}")
+  i.fa.fa-bars
+.menu(ng-class="{'menu--collapse': !visibleMenu}")
   a.menu__logo(tile="Médecins Sans Frontières")
   .menu__headline
     | 1 year of MSF actions against Ebola

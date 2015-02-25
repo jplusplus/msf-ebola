@@ -1,4 +1,5 @@
 .main {
+  z-index:@zindex-main;
   position:relative;
   padding-bottom:500px;
   background:white;
@@ -11,14 +12,18 @@
 
   &__chart {
     position:absolute;
-    top:15px;
-    left:15px;
-    right:15px;
-    height:45px;
-    border:white 2px solid;
+    top:0;
+    left:0;
+    right:0;
+    height:45px + (15px*2px);
+    border:fade(white, 40) 15px  solid;
     overflow:hidden;
     white-space:nowrap;
     overflow:hidden;
+
+    @media (max-width: @screen-sm-max) {
+      border-left-width:50px;
+    }
 
     &__stack {
       margin:0;

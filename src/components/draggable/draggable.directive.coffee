@@ -11,8 +11,8 @@ angular.module('msfEbola')
         px = x/parent.width()*100
         px = Math.max( Math.min(px, 100), 0)
         # Move the element alongside its parent
-        element.css
-          left: px + '%'
+        element.css left: px + '%'
+        # Update model value
         ngModel.$setViewValue px
 
       mouseup = ->
@@ -21,9 +21,7 @@ angular.module('msfEbola')
 
       scope.$watch (-> ngModel.$viewValue), (px)->
         x = (px or 0)/100 * parent.width()
-        element.css
-          cursor: 'pointer'
-          left: x + 'px'
+        element.css, cursor: 'grab', left: x + 'px'
 
       element.on 'mousedown', (event) ->
         # Prevent default dragging of selected content

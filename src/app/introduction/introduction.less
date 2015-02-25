@@ -24,16 +24,23 @@
     .translate(-50%,-50%);
     .transition(1.2s);
 
-    &.ng-leave.ng-leave-active,
     &.ng-enter {
-      filter: blur(100px);
+      filter: blur(50px);
       opacity:0;
+      .translate(100%,-50%);
     }
 
-    &.ng-leave,
-    &.ng-enter.ng-enter-active {
+    &.ng-leave.ng-leave-active {
+      filter: blur(50px);
+      opacity:0;
+      .translate(-100%,-50%);
+    }
+
+    &.ng-enter.ng-enter-active,
+    &.ng-leave {
       filter: blur(0);
       opacity:1;
+      .translate(-50%,-50%);
     }
 
     &__next, &__next:hover {

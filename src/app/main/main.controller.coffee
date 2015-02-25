@@ -1,16 +1,26 @@
 angular.module "msfEbola"
-  .controller "MainCtrl", ($scope, main) ->
+  .controller "MainCtrl", ($scope, main, days, centers) ->
     $scope.months = main.months
     # Progression of the draggable slider
     $scope.progress = 0
-    # Stops the animation
-    stopIncrDay = -> $interval.cancel(animation) if animation?
     # Create a slot for every weeks
-    $scope.weeks = new Array(main.weeks)
-    # Populate week's slot with fake data
-    for week, i in $scope.weeks
-      victims = ~~(50 * Math.random())
-      $scope.weeks[i] = new Array(victims)
+    $scope.weeks = {}
+    # Extract week date from the first day of each week
+    for timestamp, data of days
+      unless data.day % 7
+        # Number of new cases this week
+        data.cases = 0
+        # week.victims = new Array(bundles)
+        for key, zone of data.regional_data
+          # Count new cases for each zone
+          if zone.weekly_new_cases?
+            data.cases += 1*zone.weekly_new_cases
+        # Cases are bundled by stack of 10 cases
+        victims = Math.max 0, Math.round(data.cases/10)
+        # Create an array of X empty rows
+        data.victims = new Array victims
+        # Save the date for this week
+        $scope.weeks[timestamp] = data
     # Map's settings
     $scope.settings = main.settings
     # The given slot number must be smaller than the progress

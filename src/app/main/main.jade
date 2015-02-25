@@ -13,7 +13,8 @@
       
   .main__timeline
     .main__timeline__cursor(ng-style="{ width: progress + '%' }")
-    .main__timeline__anchor(draggable, ng-model="progress", data-month="{{ months[progressDate().getMonth()] | translate }}") {{ progressDate().getDate() }}
+    .main__timeline__anchor(draggable, ng-model="progress", data-month="{{ months[progressDate().getMonth()] | translate }}") 
+      | {{ progressDate().getDate() }}
   .main__weeks
-    .main__weeks__slot.victims-animation(ng-repeat="victims in ::weeks", ng-show="progressFilter($index)")
-      .main__weeks__slot__victim(ng-repeat="victim in ::victims track by $index")
+    .main__weeks__slot.victims-animation(ng-repeat="week in ::weeks", ng-show="progressFilter($index)")
+      .main__weeks__slot__victim(ng-repeat="victim in ::week.victims track by $index")

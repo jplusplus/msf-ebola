@@ -1,6 +1,7 @@
 angular.module "msfEbola"
   .constant "main",
     weeks: 52
+    duration: 60*1000
     settings:
       maxbounds:
         southWest: L.latLng(90, 180)

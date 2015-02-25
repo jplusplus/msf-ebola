@@ -19,7 +19,7 @@ angular.module('msfEbola')
         $document.off 'mousemove', mousemove
         $document.off 'mouseup', mouseup
 
-      scope.$watch (-> ngModel.$viewValue), (px)->
+      scope.$watch attr.ngModel, (px)->
         x = (px or 0)/100 * parent.width()
         element.css cursor: 'grab', left: (px or 0) + '%'
 

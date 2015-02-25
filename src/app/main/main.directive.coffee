@@ -9,7 +9,7 @@ angular.module('msfEbola')
           duration: main.duration,
           easing: 'linear',
           step: (frame)->
-            now = ~~(main.weeks*7 * frame/100)
+            now = ~~(365 * frame/100)
             # Update the view value when the current
             # day is bigger than the last one
             if now > day

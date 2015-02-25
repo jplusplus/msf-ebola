@@ -129,13 +129,15 @@
     margin-top:2px;
     height:5px;
     white-space:nowrap;
-    max-width:100%;
+    display:table;
+    vertical-align:top;
+    width:~"calc(100% - 40px)";
 
     &__slot {
-      width:100%/52%;
+      vertical-align:top;
+      width:auto;
       height: 5px;
-      display:inline-block;
-      float:left;
+      display:table-cell;
 
       &__victim {
         width:90%;

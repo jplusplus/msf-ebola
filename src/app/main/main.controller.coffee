@@ -2,12 +2,15 @@ angular.module "msfEbola"
   .controller "MainCtrl", ($scope, main, days, centers) ->
     $scope.months = main.months
     # Progression of the draggable slider
-    $scope.progress = 0
+    $scope.progress = 100
     # Create a slot for every weeks
     $scope.weeks = {}
+    # Count weeks
+    weeksCount = 0
     # Extract week date from the first day of each week
     for timestamp, data of days
       unless data.day % 7
+        ++weeksCount
         # Number of new cases this week
         data.cases = 0
         # week.victims = new Array(bundles)
@@ -24,13 +27,13 @@ angular.module "msfEbola"
     # Map's settings
     $scope.settings = main.settings
     # The given slot number must be smaller than the progress
-    $scope.progressFilter = (index)-> (index+1)/main.weeks <= $scope.progress/100
+    $scope.progressFilter = (index)-> (index+1)/weeksCount <= $scope.progress/100
     # Calculates the date for the current progress value
     $scope.progressDate = ->
       # Create a new date object
       start = new Date do main.start.getTime
       # Calculate the number of day spend
-      days = (main.weeks * 7) * $scope.progress/100
+      days = (weeksCount * 7) * $scope.progress/100
       # And add the days to the date
       start.setDate start.getDate() + days
       # Then returns the new datte

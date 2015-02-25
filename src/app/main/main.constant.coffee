@@ -1,5 +1,6 @@
 angular.module "msfEbola"
   .constant "main",
+    start: new Date(2014, 3, 17)
     weeks: 52
     duration: 60*1000
     settings:

@@ -13,7 +13,7 @@
       
   .main__timeline
     .main__timeline__cursor(ng-style="{ width: progress + '%' }")
-    .main__timeline__anchor(draggable, ng-model="progress", data-month="june") {{ 52 * progress/100 | number:0 }}
+    .main__timeline__anchor(draggable, ng-model="progress", data-month="{{ progressDate().getMonth() }}") {{ progressDate().getDate() }}
   .main__weeks
     .main__weeks__slot(ng-repeat="victims in ::weeks", ng-show="progressFilter($index)")
       .main__weeks__slot__victim(ng-repeat="victim in ::victims track by $index")

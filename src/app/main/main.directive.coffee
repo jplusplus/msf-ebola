@@ -3,16 +3,18 @@ angular.module('msfEbola')
     restrict: 'C'
     require: 'ngModel'
     link: (scope, element, attr, ngModel)->
-      px = 0
+      day = 0
       element.find(".main__timeline__anchor")
         .animate { left: '100%' },
           duration: main.duration,
           easing: 'linear',
-          step: (now)->
-            now = ~~now
+          step: (frame)->
+            now = ~~(main.weeks*7 * frame/100)
             # Update the view value when the current
-            # position is bigger than the last one
-            if now > px
-              ngModel.$setViewValue px = now
+            # day is bigger than the last one
+            if now > day
+              ngModel.$setViewValue frame
               # Update the parent controller render
               do ngModel.$render
+              # Save the last day
+              day = now

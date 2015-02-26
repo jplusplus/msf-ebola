@@ -77,6 +77,32 @@
     position:relative;
     border-bottom:3px solid mix(black, white);
     margin-bottom:-3px;
+
+    &__center {
+      line-height:30px;
+      text-align:center;
+      color:darken(#00e3a6, 10);
+      font-size:1.4em;
+      white-space:nowrap;
+
+      &__staff,
+      &__admitted {
+        position:absolute;
+        right:50%;
+        top:50%;
+        .translate(-0.7em, -50%);
+      }
+
+      &__staff {
+        margin-top:-0.6em;
+        color: inherit;
+      }
+
+      &__admitted {
+        margin-top:0.6em;
+        color: @brand-primary;
+      }
+    }
   }
 
   &__timeline {

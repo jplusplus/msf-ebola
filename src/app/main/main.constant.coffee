@@ -9,7 +9,7 @@ angular.module "msfEbola"
         southWest: L.latLng(90, 180)
         northEast: L.latLng(-90, -180)
       center:
-        zoom: 4
+        zoom: 5
         lat: 8.460555
         lng: -11.779889
       defaults:

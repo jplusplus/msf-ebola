@@ -56,3 +56,25 @@ angular.module "msfEbola"
       for data in days
         break if 1*data.timestamp > current
         $scope.day = data
+      # Customize icons for each center
+      $scope.centers = _.map centers, (center)->
+        return unless $scope.day?
+        centerData = $scope.day.centers[center.name]
+
+        iconHtml = [
+          '<i class="main__map__center__marker fa fa-dot-circle-o"></i>'
+          '<div class="main__map__center__staff">'
+            Array(~~(centerData.staff_count / 5)).join('<i class="fa fa-male"></i>')
+          '</div>'
+          '<div class="main__map__center__admitted">'
+            Array(~~(centerData.weekly_new_admissions / 5)).join('<i class="fa fa-male"></i>')
+          '</div>'
+        ]
+
+        center.icon =
+          type: 'div'
+          iconSize: [30, 30]
+          html: iconHtml.join('')
+          popupAnchor:  [0, 0]
+          className: 'main__map__center'
+        center

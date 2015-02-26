@@ -21,7 +21,7 @@ angular.module "msfEbola"
           if zone.weekly_new_cases?
             data.cases += 1*zone.weekly_new_cases
         # Cases are bundled by stack of 10 cases
-        victims = Math.max 0, Math.round(data.cases/10)
+        victims = Math.max 0, Math.ceil(data.cases/10)
         # Create an array of X empty rows
         data.victims = new Array victims
         # Save the date for this week
@@ -64,10 +64,10 @@ angular.module "msfEbola"
         iconHtml = [
           '<i class="main__map__center__marker fa fa-dot-circle-o"></i>'
           '<div class="main__map__center__staff">'
-            Array(~~(centerData.staff_count / 5)).join('<i class="fa fa-male"></i>')
+            Array(Math.ceil(centerData.staff_count / 5) + 1).join('<i class="fa fa-male"></i>')
           '</div>'
           '<div class="main__map__center__admitted">'
-            Array(~~(centerData.weekly_new_admissions / 5)).join('<i class="fa fa-male"></i>')
+            Array(Math.ceil(centerData.weekly_new_admissions / 5) + 1).join('<i class="fa fa-male"></i>')
           '</div>'
         ]
 

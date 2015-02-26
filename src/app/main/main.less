@@ -81,7 +81,7 @@
     &__center {
       line-height:30px;
       text-align:center;
-      color:darken(#00e3a6, 10);
+      color:@brand-success;
       font-size:1.4em;
       white-space:nowrap;
 
@@ -102,6 +102,18 @@
         margin-top:0.6em;
         color: @brand-primary;
       }
+    }
+  }
+
+  &__legend {
+    z-index:@zindex-main;
+    position:absolute;
+    top:400px;
+    padding:20px;
+    .translate(0, -100%);
+
+    &__item {
+      font-weight:bold;
     }
   }
 

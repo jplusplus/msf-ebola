@@ -1,5 +1,17 @@
 .main(ng-model="progress")
   leaflet.main__map(center='settings.center', markers="centers", tiles="settings.tiles", maxbounds="settings.maxbounds", defaults="settings.defaults")
+  .main__legend
+    ul.list-unstyled
+      li.main__legend__item
+        i.fa.fa-fw.fa-dot-circle-o.text-success
+        | &nbsp; {{ 'center' | translate }}
+      li.main__legend__item
+        i.fa.fa-fw.fa-male.text-success
+        | &nbsp; {{ 'five_staff' | translate }}
+      li.main__legend__item
+        i.fa.fa-fw.fa-male.text-primary
+        | &nbsp; {{ 'five_admitted' | translate }}
+        
   .main__chart
     .main__chart__stack.main__chart__stack--dead(ng-style="figureStyle(day.regional_data.death_total)") 
       span.main__chart__stack__label {{ 'dead' | translate }}

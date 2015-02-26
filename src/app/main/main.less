@@ -166,7 +166,6 @@
   &__weeks {
     margin:0 20px;
     margin-top:2px;
-    white-space:nowrap;
     display:table;
     vertical-align:top;
     width:~"calc(100% - 40px)";
@@ -177,12 +176,15 @@
       display:table-cell;
 
       &__victim {
+        float:left;
         opacity:0;
-        width:90%;
+        width:20%;
         height:3px;
-        margin:0 5%;
+        margin:0;
+        margin-right:5%;
         margin-bottom:2px;
         background:black;
+        display:inline-block;
       }
     }
   }

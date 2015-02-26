@@ -1,22 +1,23 @@
 .main(ng-model="progress")
   leaflet.main__map(center='settings.center', tiles="settings.tiles", maxbounds="settings.maxbounds", defaults="settings.defaults")
   .main__chart
-    .main__chart__stack.main__chart__stack--dead(style="width:45%") 
+    .main__chart__stack.main__chart__stack--dead(ng-style="figureStyle(day.regional_data.death_total)") 
       span.main__chart__stack__label {{ 'dead' | translate }}
-      span.main__chart__stack__figure 45
-    .main__chart__stack.main__chart__stack--cured(style="width:35%")
-      span.main__chart__stack__label {{ 'cured' | translate }}
-      span.main__chart__stack__figure 35
-    .main__chart__stack.main__chart__stack--msf-cured(style="width:20%")
+      span.main__chart__stack__figure {{ day.regional_data.death_total }}
+    .main__chart__stack.main__chart__stack--case(ng-style="figureStyle(day.regional_data.cases_total)")
+      span.main__chart__stack__label {{ 'cases' | translate }}
+      span.main__chart__stack__figure {{ day.regional_data.cases_total }}
+    .main__chart__stack.main__chart__stack--msf-cured(ng-style="figureStyle(day.regional_data.recovered_msf_cumulative)")
       span.main__chart__stack__label {{ 'cured_by_msf' | translate }}
-      span.main__chart__stack__figure 20
+      span.main__chart__stack__figure {{ day.regional_data.recovered_msf_cumulative }}
       
   .main__timeline
     .main__timeline__cursor(ng-style="{ width: progress + '%' }")
-    .main__timeline__anchor(draggable, ng-model="progress", data-month="{{ months[progressDate().getMonth()] | translate }}") 
-      | {{ progressDate().getDate() }}
+    .main__timeline__anchor(draggable, ng-model="progress", data-month="{{ months[today.getMonth()] | translate }}") 
+      | {{ today.getDate() }}
   .main__weeks
     .main__weeks__slot(ng-repeat="week in ::weeks")
       .victims-animation(ng-show="progressFilter($index)")
         .main__weeks__slot__victim(ng-repeat="victim in ::week.victims track by $index")
       | &nbsp;
+  

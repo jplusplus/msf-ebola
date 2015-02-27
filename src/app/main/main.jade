@@ -12,6 +12,10 @@
         i.fa.fa-fw.fa-male.text-primary
         | &nbsp; {{ 'five_admitted' | translate }}
         
+  .main__highlights
+    .main__highlights__item(ng-repeat="highlight in highlights")      
+      div(ng-bind-html="highlight.translation_key | translate")
+        
   .main__chart
     .main__chart__stack.main__chart__stack--dead(ng-style="figureStyle(day.regional_data.death_total)") 
       span.main__chart__stack__label {{ 'dead' | translate }}

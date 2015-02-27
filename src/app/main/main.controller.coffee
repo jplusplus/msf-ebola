@@ -1,5 +1,5 @@
 angular.module "msfEbola"
-  .controller "MainCtrl", ($scope, $compile, leafletData, main, days, centers) ->
+  .controller "MainCtrl", ($scope, $compile, leafletData, main, days, centers, highlights) ->
     # Used to create a center marker
     createCenter = (center)->
       # A day must be selected
@@ -40,7 +40,9 @@ angular.module "msfEbola"
         content.html main.centerPopup
         # Compile template with the new scope
         $compile(content)(scope)
-
+    # Every highlights must be available into the scope
+    $scope.highlights = highlights
+    # Months in human language
     $scope.months = main.months
     # Progression of the draggable slider
     $scope.progress = 0

@@ -6,6 +6,14 @@ angular.module "msfEbola"
         templateUrl: "app/main/main.html",
         controller: "MainCtrl"
         resolve:
+          # Hghlighted moments in the timeline
+          highlights: ($http)->
+            $http.get("assets/json/highlights.json").then (d)->
+              # Prepare each highlight
+              for highlight in d.data
+                highlight.date_start = (new Date highlight.date_start).getTime()
+                highlight.date_end   = (new Date highlight.date_end).getTime()
+              d.data
           # Data day after day
           days: ($http)-> $http.get("assets/json/days.json").then (d)->
             # Transform the days to an array

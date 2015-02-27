@@ -13,8 +13,8 @@ angular.module "msfEbola"
       center.icon = angular.extend main.icon,
         # Generate the content of this icon
         html: main.iconHtml
-          staff: Array(staff + 1).join('<i class="fa fa-male"></i>')
-          admitted: Array(admitted + 1).join('<i class="fa fa-male"></i>')
+          staff: Array(staff + 1).join '<i class="fa fa-male"></i>'
+          admitted: Array(admitted + 1).join '<i class="fa fa-male"></i>'
       center
     $scope.months = main.months
     # Progression of the draggable slider

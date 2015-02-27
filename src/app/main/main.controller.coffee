@@ -15,7 +15,6 @@ angular.module "msfEbola"
         html: main.iconHtml
           staff: Array(staff + 1).join '<i class="fa fa-male"></i>'
           admitted: Array(admitted + 1).join '<i class="fa fa-male"></i>'
-      center.clickable = not $scope.isAnimating
       center
     # Open a center's popup when clicking on its marker
     openCenter = (ev, marker)->

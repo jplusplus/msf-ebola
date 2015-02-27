@@ -3,7 +3,7 @@ angular.module "msfEbola"
     start: new Date(2014, 2, 17)
     duration: 35*1000
     months: [ 'january', 'february', 'march', 'april', 'may', 'june', 'july',
-      'august', 'september', 'october', 'november', 'december', ]
+              'august', 'september', 'october', 'november', 'december', ]
     icon:
       type: 'div'
       className: 'main__map__center'

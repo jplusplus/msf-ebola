@@ -1,11 +1,9 @@
 'use strict';
 
+var path = require('path')
 var gulp = require('gulp');
-
 var paths = gulp.paths;
-
 var $ = require('gulp-load-plugins')();
-
 var wiredep = require('wiredep').stream;
 
 gulp.task('inject', ['styles', 'scripts'], function () {
@@ -37,4 +35,17 @@ gulp.task('inject', ['styles', 'scripts'], function () {
     .pipe(wiredep(wiredepOptions))
     .pipe(gulp.dest(paths.tmp + '/serve'));
 
+});
+
+
+gulp.task('languages', function () {
+  return gulp.src('./src/app/index.constant.coffee')
+    .pipe($.inject(gulp.src('./src/assets/json/??.json', {read: false}), {
+      starttag: '# inject:languages',
+      endtag: '# endinject',
+      transform: function (filepath, file, i, length) {
+        return '"' + path.basename(filepath, '.json') + '"';
+      }
+    }))
+    .pipe(gulp.dest('./src/app/'));
 });

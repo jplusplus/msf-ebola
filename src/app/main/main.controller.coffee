@@ -6,17 +6,15 @@ angular.module "msfEbola"
       return unless $scope.day?
       # Get the today's data
       centerData = $scope.day.centers[center.name]
-      # Generate the content of this icon
-      iconHtml = [
-        '<i class="main__map__center__marker fa fa-dot-circle-o"></i>'
-        '<div class="main__map__center__staff">'
-          Array(Math.ceil(centerData.staff_count / 5) + 1).join('<i class="fa fa-male"></i>')
-        '</div>'
-        '<div class="main__map__center__admitted">'
-          Array(Math.ceil(centerData.weekly_new_admissions / 5) + 1).join('<i class="fa fa-male"></i>')
-        '</div>'
-      ]
-      center.icon = angular.extend main.icon, html: iconHtml.join('')
+      # Count be types
+      staff = Math.ceil(centerData.staff_count / 5)
+      admitted = Math.ceil(centerData.weekly_new_admissions / 5)
+      # Merge icon option and content
+      center.icon = angular.extend main.icon,
+        # Generate the content of this icon
+        html: main.iconHtml
+          staff: Array(staff + 1).join('<i class="fa fa-male"></i>')
+          admitted: Array(admitted + 1).join('<i class="fa fa-male"></i>')
       center
     $scope.months = main.months
     # Progression of the draggable slider

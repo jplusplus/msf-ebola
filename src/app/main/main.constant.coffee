@@ -9,6 +9,11 @@ angular.module "msfEbola"
       className: 'main__map__center'
       iconSize: [30, 30]
       popupAnchor:  [0, 0]
+    iconHtml: _.template [
+      '<i class="main__map__center__marker fa fa-dot-circle-o"></i>'
+      '<div class="main__map__center__staff"><%= staff %></div>'
+      '<div class="main__map__center__admitted"><%= admitted %></div>'
+    ].join("")
     settings:
       maxbounds:
         southWest: L.latLng(90, 180)
@@ -25,7 +30,10 @@ angular.module "msfEbola"
         type: 'sxyz'
         url: "http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png"
         options:
-          attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'
+          attribution: [
+            '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+            '&copy; <a href="http://cartodb.com/attributions">CartoDB</a>'
+          ].join " "
           subdomains: 'abcd'
           minZoom: 0
           maxZoom: 18

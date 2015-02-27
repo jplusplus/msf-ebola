@@ -85,6 +85,15 @@
       font-size:1.4em;
       white-space:nowrap;
 
+      &:nth-child(even), &--ltr {
+        .main__map__center__staff,
+        .main__map__center__admitted {
+          left:50%;
+          right:auto;
+          .translate(0.7em, -50%);
+        }
+      }
+
       &__staff,
       &__admitted {
         position:absolute;

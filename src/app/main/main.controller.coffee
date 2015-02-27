@@ -58,9 +58,11 @@ angular.module "msfEbola"
         $scope.day = data
       # Customize icons for each center
       $scope.centers = _.map centers, (center)->
+        # A day must be selected
         return unless $scope.day?
+        # Get the today's data
         centerData = $scope.day.centers[center.name]
-
+        # Generate the content of this icon
         iconHtml = [
           '<i class="main__map__center__marker fa fa-dot-circle-o"></i>'
           '<div class="main__map__center__staff">'

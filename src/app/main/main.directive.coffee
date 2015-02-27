@@ -4,6 +4,7 @@ angular.module('msfEbola')
     require: 'ngModel'
     link: (scope, element, attr, ngModel)->
       day = 0
+      scope.isAnimating = yes
       element.find(".main__timeline__anchor")
         .animate { left: '100%' },
           duration: main.duration,
@@ -18,3 +19,4 @@ angular.module('msfEbola')
               do ngModel.$render
               # Save the last day
               day = now
+          done: -> scope.isAnimating = no

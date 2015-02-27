@@ -18,12 +18,12 @@ angular.module "msfEbola"
       center
     # Open a center's popup when clicking on its marker
     openCenter = (ev, marker)->
+      # Stop openning until animation is over
+      return if $scope.isAnimating
       # Get the controller map
       leafletData.getMap().then (map)->
         # Retreive the center for this marker
         center = centers[ marker.markerName ]
-        # Cumulate data
-        angular.extend center, $scope.day.centers[center.name]
         # Popup position
         latLng = L.latLng(center.lat, center.lng)
         # Create the new popup
@@ -31,6 +31,10 @@ angular.module "msfEbola"
         # Create a new scope for this popup
         scope = $scope.$new no
         angular.extend scope, center: center
+        # Watch change
+        scope.$watch 'today', ->
+          # Cumulate data
+          angular.extend scope.center, $scope.day.centers[center.name]
         # Get popup node
         content = angular.element centerPopup._contentNode
         content.html main.centerPopup

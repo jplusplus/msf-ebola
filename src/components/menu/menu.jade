@@ -1,30 +1,35 @@
-a.menu-toggler(ng-click="visibleMenu = !visibleMenu", ng-class="{'menu-toggler--active': visibleMenu}")
-  i.fa.fa-bars
-.menu(ng-class="{'menu--collapse': !visibleMenu}")
-  a.menu__logo(tile="Médecins Sans Frontières")
-  .menu__headline
-    |  {{ 'msf_headline' | translate }}
-  ul.menu__links.list-unstyled
-    li
-      a {{ 'about' | translate }}
-    li
-      a {{ 'support' | translate }}
-    li
-      a {{ 'language' | translate }}
-  ul.menu__social.list-inline.text-center
-    li
-      a 
-        i.fa.fa-fw.fa-twitter      
-        span.sr-only Twitter      
-    li
-      a 
-        i.fa.fa-fw.fa-facebook
-        span.sr-only Facebook
-    li
-      a 
-        i.fa.fa-fw.fa-google-plus
-        span.sr-only Google+
-  a.menu__credits(href="http://jplusplus.org", target="_blank")
-    img(src="http://logo-js.herokuapp.com/jpp/white/e5725e/", height="20")
-    | &nbsp;
-    | {{ 'by_jpp' | translate }}
+div(ng-controller="MenuCtrl")
+  a.menu-toggler(ng-click="visibleMenu = !visibleMenu", ng-class="{'menu-toggler--active': visibleMenu}")
+    i.fa.fa-bars
+  .menu(ng-class="{'menu--collapse': !visibleMenu}")
+    a.menu__logo(tile="Médecins Sans Frontières")
+    .menu__headline
+      |  {{ 'msf_headline' | translate }}
+    ul.menu__links.list-unstyled
+      li
+        a {{ 'about' | translate }}
+      li
+        a(ng-click="showLanguages = !showLanguages") 
+          i.caret.menu__links__icon
+          | {{ 'language' | translate }}
+    ul.menu__languages.list-unstyled(ng-show="showLanguages")
+      li(ng-repeat="lang in languages track by $index")
+        a(ng-click="useLanguage(lang)") {{ lang + '_display' | translate }}
+
+    ul.menu__social.list-inline.text-center
+      li
+        a 
+          i.fa.fa-fw.fa-twitter      
+          span.sr-only Twitter      
+      li
+        a 
+          i.fa.fa-fw.fa-facebook
+          span.sr-only Facebook
+      li
+        a 
+          i.fa.fa-fw.fa-google-plus
+          span.sr-only Google+
+    a.menu__credits(href="http://jplusplus.org", target="_blank")
+      img(src="http://logo-js.herokuapp.com/jpp/white/e5725e/", height="20")
+      | &nbsp;
+      | {{ 'by_jpp' | translate }}

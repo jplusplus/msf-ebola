@@ -18,8 +18,9 @@
   "november":"november",
   "december":"december",
   "msf_headline":"msf_headline",
-  "about":"about",
-  "support":"support",
-  "language":"language",
-  "by_jpp":"by_jpp"
+  "about":"à propos",
+  "support":"faire un don",
+  "language":"langue",
+  "by_jpp":"by_jpp",
+  "date_format":"yyyy-MM-dd"
 }

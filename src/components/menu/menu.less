@@ -29,6 +29,7 @@
   bottom:0;
   width:@menu-width;
   background: @menu-bg;
+  overflow:auto;
   .transition(0.7s);
 
   @media (max-width: @screen-sm-max) {
@@ -60,10 +61,12 @@
     line-height:1em;
   }
 
-  &__links {
+  &__links, &__languages {
     margin-top:20px;
+    margin-bottom:0;
 
     li > a {
+      position:relative;
       font-weight:bold;
       display:block;
       text-align:center;
@@ -78,6 +81,36 @@
         color:@menu-bg;
         text-decoration:none;
       }
+    }
+
+    &__icon {
+      position:absolute;
+      right:10px;
+      top:50%;
+      .translate(0, -50%);
+    }
+  }
+
+  &__languages {
+    margin-top:0;
+    background: darken(@menu-bg, 10);
+    max-height: 200px;
+    overflow:auto;
+    .box-shadow(0 0 10px 0 darken(@menu-bg, 20) inset);
+
+    li > a {
+      font-size:0.9em;
+      font-weight:normal;
+      border-bottom:0;
+    }
+
+    &.ng-hide-add.ng-hide-add-active,
+    &.ng-hide-remove.ng-hide-remove-active {
+      .transition(0.6s);
+    }
+
+    &.ng-hide {
+      max-height:0;
     }
   }
 

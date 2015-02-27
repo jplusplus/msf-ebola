@@ -76,7 +76,9 @@ angular.module "msfEbola"
     # The given highlight is visible only for a moment
     $scope.highlightFilter = (highlight)->
       highlight.date_start <= $scope.today.getTime() and
-      highlight.date_end >= $scope.today.getTime()
+      highlight.date_end >= $scope.today.getTime() and
+      # Highlights appear only during the animation
+      $scope.isAnimating
     # Calculates the date for the current progress value
     $scope.progressDate = ->
       # Create a new date object

@@ -1,5 +1,5 @@
 angular.module "msfEbola"
-  .controller "MainCtrl", ($scope, main, days, centers) ->
+  .controller "MainCtrl", ($scope, $compile, leafletData, main, days, centers) ->
     # Used to create a center marker
     createCenter = (center)->
       # A day must be selected
@@ -18,7 +18,24 @@ angular.module "msfEbola"
       center
     # Open a center's popup when clicking on its marker
     openCenter = (ev, marker)->
-      console.log ev, marker
+      # Get the controller map
+      leafletData.getMap().then (map)->
+        # Retreive the center for this marker
+        center = centers[ marker.markerName ]
+        # Cumulate data
+        angular.extend center, $scope.day.centers[center.name]
+        # Popup position
+        latLng = L.latLng(center.lat, center.lng)
+        # Create the new popup
+        centerPopup = L.popup().setLatLng(latLng).openOn(map)
+        # Create a new scope for this popup
+        scope = $scope.$new no
+        angular.extend scope, center: center
+        # Get popup node
+        content = angular.element centerPopup._contentNode
+        content.html main.centerPopup
+        # Compile template with the new scope
+        $compile(content)(scope)
 
     $scope.months = main.months
     # Progression of the draggable slider

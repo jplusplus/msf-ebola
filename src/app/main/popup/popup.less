@@ -1,0 +1,46 @@
+.main__map {
+
+  .leaflet-popup-content {
+    min-width: 200px;
+  }
+
+  .leaflet-popup-content-wrapper {
+    padding:0;
+    padding-bottom:5px;
+    border-radius: 0;
+    .box-shadow( 0 4px 5px -3px fade(#000, 70));
+  }
+
+  .leaflet-popup a.leaflet-popup-close-button {
+    color:white;
+    z-index:10;
+  }
+
+  &__popup {
+
+    &__title {
+      z-index:0;
+      margin:-10px -19px;
+      padding:10px 10px;
+      padding-left:2em;
+      font-size:1.3em;
+      background:@brand-success;
+      color:white;
+      font-weight:bold;
+      position:relative;
+
+      &__icon {
+        position:absolute;
+        left:0.2em;
+        top:50%;
+        .translate(0, -50%);
+      }
+
+      &__today {
+        padding-top:0.1em;
+        font-size:0.8em;
+        font-weight:normal;
+      }
+    }
+  }
+}

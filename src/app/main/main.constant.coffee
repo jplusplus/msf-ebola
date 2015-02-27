@@ -14,6 +14,7 @@ angular.module "msfEbola"
       '<div class="main__map__center__staff"><%= staff %></div>'
       '<div class="main__map__center__admitted"><%= admitted %></div>'
     ].join("")
+    centerPopup: '<div ng-include="\'app/main/popup/popup.html\'"></div>'
     settings:
       maxbounds:
         southWest: L.latLng(90, 180)

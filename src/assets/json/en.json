@@ -21,5 +21,6 @@
   "about":"about",
   "support":"support",
   "language":"language",
-  "by_jpp":"by_jpp"
+  "by_jpp":"by_jpp",
+  "date_format": "yyyy-MM-dd"
 }

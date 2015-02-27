@@ -1,0 +1,10 @@
+.main__map__popup
+  h4.main__map__popup__title 
+    i.fa.fa-fw.fa-dot-circle-o.main__map__popup__title__icon
+    | {{ center.display_name }}
+    .main__map__popup__title__today 
+      | {{ today | date:('date_format' | translate) }}
+  .main__map__popup__body
+    p 
+      {{ 'staff_count' | translate }} <strong>{{ center.staff_count }}</strong><br />
+      {{ 'weekly_new_admissions' | translate }} <strong>{{ center.weekly_new_admissions }}</strong>

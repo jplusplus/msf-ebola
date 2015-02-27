@@ -73,6 +73,10 @@ angular.module "msfEbola"
     $scope.settings = main.settings
     # The given slot number must be smaller than the progress
     $scope.progressFilter = (index)-> (index+1)/weeksCount <= $scope.progress/100
+    # The given highlight is visible only for a moment
+    $scope.highlightFilter = (highlight)->
+      highlight.date_start <= $scope.today.getTime() and
+      highlight.date_end >= $scope.today.getTime()
     # Calculates the date for the current progress value
     $scope.progressDate = ->
       # Create a new date object

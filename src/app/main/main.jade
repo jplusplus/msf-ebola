@@ -13,8 +13,9 @@
         | &nbsp; {{ 'five_admitted' | translate }}
         
   .main__highlights
-    .main__highlights__item(ng-repeat="highlight in highlights")      
-      div(ng-bind-html="highlight.translation_key | translate")
+    .main__highlights__item(ng-repeat="highlight in highlights", ng-show="highlightFilter(highlight)")      
+      .main__highlights__item__wrapper
+        div(ng-bind-html="highlight.translation_key | translate")
         
   .main__chart
     .main__chart__stack.main__chart__stack--dead(ng-style="figureStyle(day.regional_data.death_total)") 

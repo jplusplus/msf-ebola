@@ -1,4 +1,4 @@
-project_identifier: msf-ebola
+project_identifier: msf-ebola-one-year
 base_url: https://api.crowdin.com
 preserve_hierarchy: true
 api_key: <ADD YOUR API KEY HERE>

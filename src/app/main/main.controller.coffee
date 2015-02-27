@@ -3,7 +3,7 @@ angular.module "msfEbola"
     # Used to create a center marker
     createCenter = (center)->
       # A day must be selected
-      return unless $scope.day?
+      return unless $scope.day? and $scope.day.centers[center.name]?
       # Get the today's data
       centerData = $scope.day.centers[center.name]
       # Count be types
@@ -16,6 +16,10 @@ angular.module "msfEbola"
           staff: Array(staff + 1).join '<i class="fa fa-male"></i>'
           admitted: Array(admitted + 1).join '<i class="fa fa-male"></i>'
       center
+    # Open a center's popup when clicking on its marker
+    openCenter = (ev, marker)->
+      console.log ev, marker
+
     $scope.months = main.months
     # Progression of the draggable slider
     $scope.progress = 0
@@ -74,3 +78,5 @@ angular.module "msfEbola"
         $scope.day = data
       # Customize icons for each center
       $scope.centers = _.map centers, createCenter
+    # Wait for click on marker
+    $scope.$on 'leafletDirectiveMarker.click', openCenter

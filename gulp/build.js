@@ -80,6 +80,13 @@ gulp.task('misc', function () {
     .pipe(gulp.dest(paths.dist + '/'));
 });
 
+gulp.task('csv', function(){
+  gulp.src(['src/assets/csv/*.csv'])
+    .pipe($.convert({ from: 'csv', to: 'json' }))
+    .pipe(gulp.dest('.tmp/assets/json/'))
+    .pipe(gulp.dest('dist/assets/json/'));
+});
+
 gulp.task('assets:dist', function () {
   return gulp.src('src/assets/{fonts,json}/**/*')
     .pipe(gulp.dest('dist/assets/'));

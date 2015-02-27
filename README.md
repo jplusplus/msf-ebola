@@ -27,11 +27,11 @@ This project relies on Crowdin to manage interface translations. To be able to s
 cp crowdin.yaml.template crowdin.yaml
 ```
 
-**Edit the new file ```crowdin.yaml``` to add your API key ([grab it here](https://crowdin.com/project/msf-ebola/settings#api)):**
+**Edit the new file ```crowdin.yaml``` to add your API key ([grab it here](https://crowdin.com/project/msf-ebola-one-year/settings#api)):**
 
 
 ```yaml
-project_identifier: msf-ebola
+project_identifier: msf-ebola-one-year
 base_url: https://api.crowdin.com
 preserve_hierarchy: true
 api_key: <ADD YOUR API KEY HERE>

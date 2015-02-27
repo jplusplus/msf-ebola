@@ -4,6 +4,11 @@ angular.module "msfEbola"
     duration: 35*1000
     months: [ 'january', 'february', 'march', 'april', 'may', 'june', 'july',
       'august', 'september', 'october', 'november', 'december', ]
+    icon:
+      type: 'div'
+      className: 'main__map__center'
+      iconSize: [30, 30]
+      popupAnchor:  [0, 0]
     settings:
       maxbounds:
         southWest: L.latLng(90, 180)

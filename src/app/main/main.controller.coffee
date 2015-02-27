@@ -1,5 +1,23 @@
 angular.module "msfEbola"
   .controller "MainCtrl", ($scope, main, days, centers) ->
+    # Used to create a center marker
+    createCenter = (center)->
+      # A day must be selected
+      return unless $scope.day?
+      # Get the today's data
+      centerData = $scope.day.centers[center.name]
+      # Generate the content of this icon
+      iconHtml = [
+        '<i class="main__map__center__marker fa fa-dot-circle-o"></i>'
+        '<div class="main__map__center__staff">'
+          Array(Math.ceil(centerData.staff_count / 5) + 1).join('<i class="fa fa-male"></i>')
+        '</div>'
+        '<div class="main__map__center__admitted">'
+          Array(Math.ceil(centerData.weekly_new_admissions / 5) + 1).join('<i class="fa fa-male"></i>')
+        '</div>'
+      ]
+      center.icon = angular.extend main.icon, html: iconHtml.join('')
+      center
     $scope.months = main.months
     # Progression of the draggable slider
     $scope.progress = 0
@@ -57,26 +75,4 @@ angular.module "msfEbola"
         break if 1*data.timestamp > current
         $scope.day = data
       # Customize icons for each center
-      $scope.centers = _.map centers, (center)->
-        # A day must be selected
-        return unless $scope.day?
-        # Get the today's data
-        centerData = $scope.day.centers[center.name]
-        # Generate the content of this icon
-        iconHtml = [
-          '<i class="main__map__center__marker fa fa-dot-circle-o"></i>'
-          '<div class="main__map__center__staff">'
-            Array(Math.ceil(centerData.staff_count / 5) + 1).join('<i class="fa fa-male"></i>')
-          '</div>'
-          '<div class="main__map__center__admitted">'
-            Array(Math.ceil(centerData.weekly_new_admissions / 5) + 1).join('<i class="fa fa-male"></i>')
-          '</div>'
-        ]
-
-        center.icon =
-          type: 'div'
-          iconSize: [30, 30]
-          html: iconHtml.join('')
-          popupAnchor:  [0, 0]
-          className: 'main__map__center'
-        center
+      $scope.centers = _.map centers, createCenter

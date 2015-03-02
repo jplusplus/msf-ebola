@@ -5,16 +5,19 @@ angular.module "msfEbola"
       # A day must be selected
       return unless $scope.day? and $scope.day.centers[center.name]?
       # Get the today's data
-      centerData = $scope.day.centers[center.name]
-      # Count be types
-      staff = Math.ceil(centerData.staff_count / 5)
-      admitted = Math.ceil(centerData.weekly_new_admissions / 5)
-      # Merge icon option and content
-      center.icon = angular.extend main.icon,
-        # Generate the content of this icon
-        html: main.iconHtml
-          staff: Array(staff + 1).join '<i class="fa fa-male"></i>'
-          admitted: Array(admitted + 1).join '<i class="fa fa-male"></i>'
+      if center.type is 'support'
+        center.icon = main.iconSupport
+      else
+        centerData = $scope.day.centers[center.name]
+        # Count by types
+        staff = Math.ceil(centerData.staff_count / 10)
+        admitted = Math.ceil(centerData.weekly_new_admissions / 10)
+        # Create the icon using a template to visualize data
+        center.icon = angular.extend angular.copy(main.iconCte),
+          # Generate the content of this icon
+          html: main.iconCte.template
+            staff: Array(staff + 1).join '<i class="fa fa-male"></i>'
+            admitted: Array(admitted + 1).join '<i class="fa fa-male"></i>'
       center
     # Open a center's popup when clicking on its marker
     openCenter = (ev, marker)->

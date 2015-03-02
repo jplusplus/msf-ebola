@@ -4,23 +4,29 @@ angular.module "msfEbola"
     duration: 35*1000
     months: [ 'january', 'february', 'march', 'april', 'may', 'june', 'july',
               'august', 'september', 'october', 'november', 'december', ]
-    icon:
+    iconCte:
       type: 'div'
-      className: 'main__map__center'
+      className: 'main__map__center main__map__center--ctr'
       iconSize: [30, 30]
       popupAnchor:  [0, 0]
-    iconHtml: _.template [
-      '<i class="main__map__center__marker fa fa-dot-circle-o"></i>'
-      '<div class="main__map__center__staff"><%= staff %></div>'
-      '<div class="main__map__center__admitted"><%= admitted %></div>'
-    ].join("")
+      template: _.template [
+        '<i class="main__map__center__marker fa fa-dot-circle-o"></i>'
+        '<div class="main__map__center__staff"><%= staff %></div>'
+        '<div class="main__map__center__admitted"><%= admitted %></div>'
+      ].join("")
+    iconSupport:
+      type: 'div'
+      className: 'main__map__center main__map__center--support'
+      iconSize: [30, 30]
+      popupAnchor:  [0, 0]
+      html: '<i class="main__map__center__marker fa fa-circle"></i>'
     centerPopup: '<div ng-include="\'app/main/popup/popup.html\'"></div>'
     settings:
       maxbounds:
         southWest: L.latLng(90, 180)
         northEast: L.latLng(-90, -180)
       center:
-        zoom: 5
+        zoom: 7
         lat: 8.460555
         lng: -11.779889
       defaults:

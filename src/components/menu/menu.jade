@@ -2,7 +2,7 @@ div(ng-controller="MenuCtrl")
   a.menu-toggler(ng-click="visibleMenu = !visibleMenu", ng-class="{'menu-toggler--active': visibleMenu}")
     i.fa.fa-bars
   .menu(ng-class="{'menu--collapse': !visibleMenu}")
-    a.menu__logo(tile="Médecins Sans Frontières")
+    a.menu__logo(tile="Médecins Sans Frontières", ui-sref="main")
     .menu__headline
       |  {{ 'msf_headline' | translate }}
     ul.menu__links.list-unstyled
@@ -30,6 +30,6 @@ div(ng-controller="MenuCtrl")
           i.fa.fa-fw.fa-google-plus
           span.sr-only Google+
     a.menu__credits(href="http://jplusplus.org", target="_blank")
-      img(src="http://logo-js.herokuapp.com/jpp/white/e5725e/", height="20")
+      img(src="http://logo-js.herokuapp.com/jpp/white/4A3B3C/", height="20")
       | &nbsp;
       | {{ 'by_jpp' | translate }}

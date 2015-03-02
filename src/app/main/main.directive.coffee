@@ -1,10 +1,10 @@
 angular.module('msfEbola')
-  .directive 'main', (main) ->
+  .directive 'main', ($rootScope, main) ->
     restrict: 'C'
     require: 'ngModel'
     link: (scope, element, attr, ngModel)->
       day = 0
-      scope.isAnimating = yes
+      $rootScope.$broadcast "main:start"
       element.find(".main__timeline__anchor")
         .animate { left: '100%' },
           duration: main.duration,
@@ -19,4 +19,6 @@ angular.module('msfEbola')
               do ngModel.$render
               # Save the last day
               day = now
-          done: -> scope.isAnimating = no
+          done: ->
+            $rootScope.$apply ->
+              $rootScope.$broadcast "main:end"

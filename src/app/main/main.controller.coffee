@@ -113,3 +113,9 @@ angular.module "msfEbola"
       $scope.centers = _.map centers, createCenter
     # Wait for click on marker
     $scope.$on 'leafletDirectiveMarker.click', openCenter
+    # The animation starts
+    $scope.$on 'main:start', -> $scope.isAnimating = yes
+    # The animation stops
+    $scope.$on 'main:end', ->
+      $scope.isAnimating = no
+      $scope.displayFinalHighlight = yes

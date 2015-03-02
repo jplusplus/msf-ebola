@@ -1,9 +1,9 @@
 .main {
   @chart-height: 45px + (15px*2px);
+  @map-height: 450px;
 
   z-index:@zindex-main;
   position:relative;
-  padding-bottom:500px;
   background:white;
   margin-left:@menu-width;
   overflow:hidden;
@@ -86,7 +86,7 @@
       position:absolute;
       top:0;
       left:0;
-      height: 400px - @chart-height - 3px;
+      height: @map-height - @chart-height - 3px;
       width:100%;
       padding:0 40px;
       display:block;
@@ -115,7 +115,7 @@
   &__map {
     z-index:@zindex-main - 10;
     background:#CCD1D3;
-    height:400px;
+    height:@map-height;
     position:relative;
     border-bottom:3px solid mix(black, white);
     margin-bottom:-3px;
@@ -173,12 +173,15 @@
   &__legend {
     z-index:@zindex-main;
     position:absolute;
-    top:400px;
+    top:@map-height;
     padding:20px;
     .translate(0, -100%);
 
     &__item {
       font-weight:bold;
+      i {
+        text-shadow:0 1px 1px fade(black, 50);
+      }
     }
   }
 
@@ -242,7 +245,6 @@
 
       &__victim {
         float:left;
-        opacity:0;
         width:20%;
         height:3px;
         margin:0;

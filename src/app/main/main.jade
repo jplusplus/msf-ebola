@@ -19,6 +19,12 @@
     .main__highlights__item(ng-repeat="highlight in highlights", ng-show="highlightFilter(highlight)")      
       .main__highlights__item__wrapper
         div(ng-bind-html="highlight.translation_key | translate")
+    .main__highlights__item(ng-show="displayFinalHighlight")      
+      .main__highlights__item__wrapper
+        div(ng-bind-html="'final_highlight' | translate")
+        .text-center
+          a.introduction__step__next(ng-click="displayFinalHighlight = false")
+            i.fa.fa-arrow-circle-right.fa-2x
         
   .main__chart
     .main__chart__stack.main__chart__stack--dead(ng-style="figureStyle(day.regional_data.death_total)") 

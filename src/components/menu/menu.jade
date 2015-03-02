@@ -7,7 +7,7 @@ div(ng-controller="MenuCtrl")
       |  {{ 'msf_headline' | translate }}
     ul.menu__links.list-unstyled
       li
-        a {{ 'about' | translate }}
+        a(ui-sref="about") {{ 'about' | translate }}
       li
         a(ng-click="showLanguages = !showLanguages") 
           i.caret.menu__links__icon

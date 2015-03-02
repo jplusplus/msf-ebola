@@ -10,9 +10,11 @@ angular.module "msfEbola"
       iconSize: [30, 30]
       popupAnchor:  [0, 0]
       template: _.template [
-        '<i class="main__map__center__marker fa fa-dot-circle-o"></i>'
-        '<div class="main__map__center__staff"><%= staff %></div>'
-        '<div class="main__map__center__admitted"><%= admitted %></div>'
+        '<div class="main__map__center__wrapper" data-name="<%- name %>">'
+          '<i class="main__map__center__marker fa fa-dot-circle-o"></i>'
+          '<div class="main__map__center__staff"><%= staff %></div>'
+          '<div class="main__map__center__admitted"><%= admitted %></div>'
+        '</div>'
       ].join("")
     iconSupport:
       type: 'div'

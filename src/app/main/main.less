@@ -128,13 +128,25 @@
       white-space:nowrap;
       text-shadow:0 1px 1px fade(black, 50);
 
-      &:nth-child(even), &--ltr {
+      &--ltr,
+      &__wrapper[data-name='Foya - Liberia'],
+      &__wrapper[data-name='Gueckedou - Guinea'] {
         .main__map__center__staff,
         .main__map__center__admitted {
           left:50%;
           right:auto;
           .translate(0.7em, -50%);
         }
+      }
+
+      &__wrapper[data-name='Foya - Liberia'] {
+        .main__map__center__staff { margin-top:0; }
+        .main__map__center__admitted { margin-top:1.2em; }
+      }
+
+      &__wrapper[data-name='Gueckedou - Guinea'] {
+        .main__map__center__staff { margin-top:-1.2em; }
+        .main__map__center__admitted { margin-top:0; }
       }
 
       &__staff,

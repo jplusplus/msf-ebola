@@ -21,7 +21,6 @@
     height:@chart-height;
     border:fade(white, 70) 15px  solid;
     overflow:hidden;
-    white-space:nowrap;
     display:table;
     .transition(0.7s);
 
@@ -37,7 +36,6 @@
       background:fade(white, 40);
       color:white;
       font-weight:bold;
-      white-space:nowrap;
       position:relative;
       display:table-cell;
       .transition(0.3s);
@@ -55,18 +53,11 @@
         color:#0A2E2C;
       }
 
-      &__label {
-        font-size:10px;
-        position:absolute;
-        top:5px;
-        left:5px;
-      }
-
       &__figure {
         position:absolute;
         bottom:5px;
         left:5px;
-        font-size:16px;
+        font-size:12px;
       }
     }
   }

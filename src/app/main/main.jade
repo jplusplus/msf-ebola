@@ -28,14 +28,14 @@
         
   .main__chart
     .main__chart__stack.main__chart__stack--dead(ng-style="figureStyle(day.regional_data.death_total)") 
-      span.main__chart__stack__label {{ 'dead' | translate }}
-      span.main__chart__stack__figure {{ day.regional_data.death_total | decade }}
+      span.main__chart__stack__figure
+        {{ "dead" | translate: { death_total: (day.regional_data.death_total | decade) } }}
     .main__chart__stack.main__chart__stack--case(ng-style="figureStyle(day.regional_data.cases_total)")
-      span.main__chart__stack__label {{ 'cases' | translate }}
-      span.main__chart__stack__figure {{ day.regional_data.cases_total | decade }}
+      span.main__chart__stack__figure
+        {{ "cases" | translate: { cases_total: (day.regional_data.cases_total | decade) } }}
     .main__chart__stack.main__chart__stack--msf-cured(ng-style="figureStyle(day.regional_data.recovered_msf_cumulative)")
-      span.main__chart__stack__label {{ 'cured_by_msf' | translate }}
-      span.main__chart__stack__figure {{ day.regional_data.recovered_msf_cumulative | decade }}
+      span.main__chart__stack__figure
+        {{ "cured_by_msf" | translate: { recovered_msf_cumulative: (day.regional_data.recovered_msf_cumulative | decade) } }}
       
   .main__timeline
     .main__timeline__cursor(ng-style="{ width: progress + '%' }")

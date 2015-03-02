@@ -6,7 +6,7 @@ angular.module "msfEbola"
               'august', 'september', 'october', 'november', 'december', ]
     iconCte:
       type: 'div'
-      className: 'main__map__center main__map__center--ctr'
+      className: 'main__map__center main__map__center--cte'
       iconSize: [30, 30]
       popupAnchor:  [0, 0]
       template: _.template [

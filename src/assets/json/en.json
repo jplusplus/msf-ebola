@@ -1,7 +1,7 @@
 {
   "center":"center",
-  "five_staff":"five_staff",
-  "five_admitted":"five_admitted",
+  "ten_staff":"ten_staff",
+  "ten_admitted":"ten_admitted",
   "dead":"dead",
   "cases":"cases",
   "cured_by_msf":"cured_by_msf",

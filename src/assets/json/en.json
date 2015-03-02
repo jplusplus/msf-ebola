@@ -2,7 +2,7 @@
   "center":"center",
   "ten_staff":"10 MSF staff",
   "ten_admitted":"10 new weekly admissions",
-  "dead":"Since the beginning of the epidemic, {{death_total}} died of Ebola",
+  "dead":"Since March 2014, {{death_total}} died of Ebola",
   "cases":"{{cases_total}} contracted the virus",
   "cured_by_msf":"{{recovered_msf_cumulative}} were cured by MSF",
   "january":"January",

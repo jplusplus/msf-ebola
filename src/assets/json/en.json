@@ -1,5 +1,5 @@
 {
-  "app_title": "app_title",
+  "app_title":"app_title",
   "center":"center",
   "ten_staff":"10 MSF staff",
   "ten_admitted":"10 new weekly admissions",
@@ -24,10 +24,10 @@
   "language":"language",
   "by_jpp":"Made by Journalism++",
   "date_format":"yyyy-MM-dd",
-  "highlight_sample": "The path of a cosmonaut is not an easy, triumphant march to glory. You have to get to know the meaning not just of joy but also of grief, before being allowed in the spacecraft cabin.",
-  "final_highlight": "Problems look mighty small from <a href=\"http://spaceipsum.com/\">150 miles</a> up.",
-  "other": "Other",
-  "gin": "Guinea",
-  "lbr": "Liberia",
-  "sle": "Sierra Leone"
+  "highlight_sample":"The path of a cosmonaut is not an easy, triumphant march to glory. You have to get to know the meaning not just of joy but also of grief, before being allowed in the spacecraft cabin.",
+  "final_highlight":"Problems look mighty small from <a href=\"http:\/\/spaceipsum.com\/\">150 miles<\/a> up.",
+  "other":"Other",
+  "gin":"Guinea",
+  "lbr":"Liberia",
+  "sle":"Sierra Leone"
 }

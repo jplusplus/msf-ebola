@@ -25,7 +25,7 @@ angular.module('msfEbola')
 
       scope.$watch attr.ngModel, (px)->
         x = (px or 0)/100 * parent.width()
-        element.css cursor: 'grab', left: (px or 0) + '%'
+        element.css cursor: 'move', left: (px or 0) + '%'
 
       element.on 'mousedown touchstart', (event) ->
         # Prevent default dragging of selected content

@@ -8,7 +8,7 @@ angular.module "msfEbola"
       victims.stop().css opacity: 1-opacity
       victims.each (i)->
         delay = i * victim_delay
-        $(this).delay(delay).animate opacity: opacity,
+        $(this).delay(delay).velocity opacity: opacity,
           duration: 100
           easing: 'linear'
       setTimeout done, 500

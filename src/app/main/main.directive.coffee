@@ -6,19 +6,19 @@ angular.module('msfEbola')
       day = 0
       $rootScope.$broadcast "main:start"
       element.find(".main__timeline__anchor")
-        .animate { left: '100%' },
+        .velocity { left: '100%' },
           duration: main.duration,
           easing: 'linear',
-          step: (frame)->
-            now = ~~(365 * frame/100)
+          progress: (element, frame)->
+            now = ~~(365 * frame)
             # Update the view value when the current
             # day is bigger than the last one
             if now > day
-              ngModel.$setViewValue frame
+              ngModel.$setViewValue frame*100
               # Update the parent controller render
               do ngModel.$render
               # Save the last day
               day = now
-          done: ->
+          complete: ->
             $rootScope.$apply ->
               $rootScope.$broadcast "main:end"

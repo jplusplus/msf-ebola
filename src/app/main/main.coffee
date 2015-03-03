@@ -8,14 +8,14 @@ angular.module "msfEbola"
         resolve:
           # Hghlighted moments in the timeline
           highlights: ($http)->
-            $http.get("assets/json/highlights.json").then (d)->
+            $http.get("assets/json/highlights.json", cache: yes).then (d)->
               # Prepare each highlight
               for highlight in d.data
                 highlight.date_start = (new Date highlight.date_start).getTime()
                 highlight.date_end   = (new Date highlight.date_end).getTime()
               d.data
           # Data day after day
-          days: ($http)-> $http.get("assets/json/days.json").then (d)->
+          days: ($http)-> $http.get("assets/json/days.json", cache: yes).then (d)->
             # Transform the days to an array
             days = _.reduce d.data, (array, day, timestamp)->
               day.timestamp = timestamp
@@ -25,4 +25,4 @@ angular.module "msfEbola"
             # Order the array for quicker calculation
             _.sortBy days, 'timestamp'
           # Data per center
-          centers: ($http)-> $http.get("assets/json/centers.json").then (d)-> d.data
+          centers: ($http)-> $http.get("assets/json/centers.json", cache: yes).then (d)-> d.data

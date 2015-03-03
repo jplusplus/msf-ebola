@@ -48,9 +48,12 @@
           .main__weeks__slot__outline__victim(ng-repeat="victim in ::week.victims track by $index")
         .clearfix
         .main__weeks__slot__outline__popover(ng-class="{ 'main__weeks__slot__outline__popover--rtl': $index < weeksCount/3 }")
-          h4.main__weeks__slot__outline__popover__title 12th - 18th August
+          h4.main__weeks__slot__outline__popover__title 
+            | {{ week.start | date:('date_format' | translate) }}
+            | →
+            | {{ week.end | date:('date_format' | translate) }}
           ul.list-unstyled.main__weeks__slot__outline__popover__body
              li(ng-repeat="(code, place) in ::week.regional_data", ng-show="::popoverFilter(place)")
+               em.pull-right &nbsp;{{ place.weekly_new_cases }}
                strong {{ code | lowercase | translate }}
-               em &nbsp;{{ place.weekly_new_cases }}
                

@@ -304,7 +304,7 @@
         }
 
         &__popover {
-          font-size: 0.9em;
+          font-size: 0.8em;
           position:absolute;
           right:100%;
           top:0;
@@ -314,8 +314,7 @@
           display:none;
           background:@menu-bg;
           color:white;
-          padding:10px;
-          padding-bottom:0;
+          padding:0 10px;
           pointer-events:none;
           .box-shadow(0 2px 2px 2px fade(darken(@menu-bg, 20), 30) );
 
@@ -343,10 +342,11 @@
           }
 
           &__title {
-            padding:0;
-            margin:0;
-            margin-bottom:5px;
-            font-size: 1.1em;
+            padding:10px;
+            margin:0 -10px;
+            margin-bottom:10px;
+            border-bottom:1px solid fade(white, 20);
+            font-size: 1.2em;
             text-transform:uppercase;
             font-weight:bold;
           }

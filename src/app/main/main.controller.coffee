@@ -71,6 +71,9 @@ angular.module "msfEbola"
         victims = Math.max 0, Math.ceil(data.cases/10)
         # Create an array of X empty rows
         data.victims = new Array victims
+        # Save the starting date of this week
+        data.start = new Date data.timestamp*1000
+        data.end = new Date data.timestamp*1000 + 7 * 24 * 60 * 60 * 1000
         # Save the date for this week
         $scope.weeks[data.timestamp] = data
     # Save the week count into the scope

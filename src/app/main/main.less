@@ -328,6 +328,20 @@
             border-left-color:@menu-bg;
           }
 
+          &--rtl {
+            right:auto;
+            left:100%;
+            margin-right:0;
+            margin-left:8px;
+
+            &:after {
+              left:auto;
+              right:100%;
+              border-left-color:transparent;
+              border-right-color:@menu-bg;
+            }
+          }
+
           &__title {
             padding:0;
             margin:0;

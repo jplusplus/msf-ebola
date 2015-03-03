@@ -73,6 +73,8 @@ angular.module "msfEbola"
         data.victims = new Array victims
         # Save the date for this week
         $scope.weeks[data.timestamp] = data
+    # Save the week count into the scope
+    $scope.weeksCount = weeksCount
     # Map's settings
     $scope.settings = main.settings
     # The given slot number must be smaller than the progress

@@ -32,6 +32,8 @@ angular.module "msfEbola"
         lat: 8.460555
         lng: -11.779889
       defaults:
+        maxZoom: 7
+        minZoom: 7
         zoomControl: no
         scrollWheelZoom: no
       tiles:

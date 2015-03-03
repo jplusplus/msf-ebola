@@ -16,7 +16,7 @@ angular.module "msfEbola"
       if className is 'ng-hide'
         cascading element, 0, done
       return
-    removeClass: (element, className, done) ->
+    beforeRemoveClass: (element, className, done) ->
       if className is 'ng-hide'
         cascading element, 1, done
       else do done

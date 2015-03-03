@@ -43,7 +43,14 @@
       | {{ today.getDate() }}
   .main__weeks
     .main__weeks__slot(ng-repeat="week in ::weeks")
-      .victims-animation(ng-show="progressFilter($index)")
-        .main__weeks__slot__victim(ng-repeat="victim in ::week.victims track by $index")
-      | &nbsp;
-  
+      .main__weeks__slot__outline
+        .victims-animation(ng-show="progressFilter($index)")
+          .main__weeks__slot__outline__victim(ng-repeat="victim in ::week.victims track by $index")
+        .clearfix
+        .main__weeks__slot__outline__popover(ng-class="{ 'main__weeks__slot__outline__popover--rtl': $index > weeks.length/2 }")
+          h4.main__weeks__slot__outline__popover__title 12th - 18th August
+          ul.list-unstyled.main__weeks__slot__outline__popover__body
+             li(ng-repeat="(code, place) in ::week.regional_data", ng-show="popoverFilter(place)")
+               strong {{ code | lowercase | translate }}
+               em &nbsp;{{ place.weekly_new_cases }}
+               

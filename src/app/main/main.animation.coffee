@@ -1,7 +1,7 @@
 angular.module "msfEbola"
   .animation '.victims-animation', ->
     cascading =  (element, opacity, done)->
-      victims = element.find ".main__weeks__slot__victim"
+      victims = element.find ".main__weeks__slot__outline__victim"
       # The total animation must be 500 ms
       victim_delay = 500/victims.length
       # Initial state of the victims

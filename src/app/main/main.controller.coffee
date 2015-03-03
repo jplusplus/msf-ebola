@@ -101,6 +101,8 @@ angular.module "msfEbola"
         width: Math.round(100/3) + "%"
       else
         width: Math.round(figure/total*100) + "%"
+    # Only show place with new cases
+    $scope.popoverFilter = (place)-> ( place.weekly_new_cases ? 0 ) > 0
     # Update the day data
     $scope.$watch 'progress', ->
       $scope.today = $scope.progressDate()

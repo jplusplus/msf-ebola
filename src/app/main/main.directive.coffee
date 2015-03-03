@@ -22,6 +22,7 @@ angular.module('msfEbola')
           complete: ->
             $rootScope.$apply ->
               # Notice the end of the animation
+              $rootScope.$broadcast "main:end"
       # Stops the animation
       scope.$on "main:cancel", ->
         # Use velocity method to stop the animation

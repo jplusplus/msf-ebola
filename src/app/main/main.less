@@ -50,8 +50,8 @@
       }
 
       &--msf-cured {
-        background:#00e3a6;
-        color:#0A2E2C;
+        background:@brand-success;
+        overflow:visible;
       }
 
       &__figure {
@@ -59,6 +59,35 @@
         bottom:5px;
         left:5px;
         font-size:12px;
+      }
+
+      &--msf-cured &__figure{
+        right:100%;
+        left:auto;
+        margin-right:10px;
+
+        &:after {
+          content:"";
+          position:absolute;
+          left:100%;
+          top:50%;
+          height:1px;
+          width:15px;
+          background:white;
+          .translate(5px, -50%);
+        }
+
+        &:before {
+          content:"";
+          position:absolute;
+          left:100%;
+          top:50%;
+          height:5px;
+          width:5px;
+          background:white;
+          border-radius:5px/2px;
+          .translate(15px, -50%);
+        }
       }
     }
   }

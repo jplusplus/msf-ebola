@@ -1,5 +1,5 @@
 angular.module "msfEbola"
-  .controller "MainCtrl", ($scope, $compile, leafletData, main, days, centers, highlights) ->
+  .controller "MainCtrl", ($scope, $rootScope, $compile, $stateParams, leafletData, main, days, centers, highlights) ->
     # Used to create a center marker
     createCenter = (center)->
       # A day must be selected
@@ -114,7 +114,11 @@ angular.module "msfEbola"
     # Wait for click on marker
     $scope.$on 'leafletDirectiveMarker.click', openCenter
     # The animation starts
-    $scope.$on 'main:start', -> $scope.isAnimating = yes
+    $scope.$on 'main:start', ->
+       $scope.isAnimating = yes
+       console.log "start", 1*$stateParams.skip
+       # Cancel this animation
+       $rootScope.$broadcast "main:cancel" if 1*$stateParams.skip
     # The animation stops
     $scope.$on 'main:end', ->
       $scope.isAnimating = no

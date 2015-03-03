@@ -4,7 +4,7 @@ angular.module('msfEbola')
     require: 'ngModel'
     link: (scope, element, attr, ngModel)->
       day = 0
-      $rootScope.$broadcast "main:start"
+      # Starts the animation
       element.find(".main__timeline__anchor")
         .velocity { left: '100%' },
           duration: main.duration,
@@ -21,4 +21,12 @@ angular.module('msfEbola')
               day = now
           complete: ->
             $rootScope.$apply ->
-              $rootScope.$broadcast "main:end"
+              # Notice the end of the animation
+      # Stops the animation
+      scope.$on "main:cancel", ->
+        # Use velocity method to stop the animation
+        element.find(".main__timeline__anchor").velocity "stop"
+        # Notice the end of the animation
+        $rootScope.$broadcast "main:end"
+      # Notice the begining of the animation
+      $rootScope.$broadcast "main:start"

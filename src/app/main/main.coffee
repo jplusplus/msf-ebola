@@ -2,7 +2,10 @@ angular.module "msfEbola"
   .config ($stateProvider) ->
     $stateProvider
       .state "main",
-        url: '/main'
+        url: '/main?skip'
+        params:
+          skip:
+            value: 0
         templateUrl: "app/main/main.html",
         controller: "MainCtrl"
         resolve:

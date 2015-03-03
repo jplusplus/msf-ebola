@@ -62,11 +62,15 @@ angular.module "msfEbola"
         ++weeksCount
         # Number of new cases this week
         data.cases = 0
+        data.places = []
         # week.victims = new Array(bundles)
         for key, zone of data.regional_data
           # Count new cases for each zone
           if zone.weekly_new_cases?
             data.cases += 1*zone.weekly_new_cases
+            # Save the zone into an array for ordering
+            zone.code = key
+            data.places.push zone
         # Cases are bundled by stack of 10 cases
         victims = Math.max 0, Math.ceil(data.cases/10)
         # Create an array of X empty rows

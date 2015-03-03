@@ -53,7 +53,7 @@
             | →
             | {{ week.end | date:('date_format' | translate) }}
           ul.list-unstyled.main__weeks__slot__outline__popover__body
-             li(ng-repeat="(code, place) in ::week.regional_data", ng-show="::popoverFilter(place)")
+             li(ng-repeat="place in ::week.places | orderBy:'-weekly_new_cases'", ng-show="::popoverFilter(place)")
                em.pull-right &nbsp;{{ place.weekly_new_cases }}
-               strong {{ code | lowercase | translate }}
+               strong {{ place.code | lowercase | translate }}
                

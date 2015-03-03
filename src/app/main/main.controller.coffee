@@ -116,7 +116,6 @@ angular.module "msfEbola"
     # The animation starts
     $scope.$on 'main:start', ->
        $scope.isAnimating = yes
-       console.log "start", 1*$stateParams.skip
        # Cancel this animation
        $rootScope.$broadcast "main:cancel" if 1*$stateParams.skip
     # The animation stops

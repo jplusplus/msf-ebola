@@ -56,6 +56,8 @@ angular.module "msfEbola"
     $scope.weeks = {}
     # Count weeks
     weeksCount = 0
+
+
     # Extract week date from the first day of each week
     for data in days
       unless data.day % 7
@@ -67,7 +69,7 @@ angular.module "msfEbola"
         for key, zone of data.regional_data
           # Count new cases for each zone
           if zone.weekly_new_cases?
-            data.cases += 1*zone.weekly_new_cases
+            data.cases += Math.max(1*zone.weekly_new_cases, 0)
             # Save the zone into an array for ordering
             zone.code = key
             data.places.push zone
@@ -80,6 +82,8 @@ angular.module "msfEbola"
         data.end = new Date data.timestamp*1000 + 7 * 24 * 60 * 60 * 1000
         # Save the date for this week
         $scope.weeks[data.timestamp] = data
+
+
     # Save the week count into the scope
     $scope.weeksCount = weeksCount
     # Map's settings

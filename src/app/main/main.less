@@ -263,11 +263,20 @@
   }
 
   &__weeks {
-    margin:0 20px;
+    margin:0 30px;
     margin-top:2px;
     display:table;
     vertical-align:top;
     width:~"calc(100% - 40px)";
+    position:relative;
+
+    &__legend {
+      position:absolute;
+      left:0px;
+      top:20px;
+      font-size:2em;
+      color:mix(@menu-bg, white);
+    }
 
     &__slot {
       vertical-align:top;

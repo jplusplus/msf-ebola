@@ -41,7 +41,10 @@
     .main__timeline__cursor(ng-style="{ width: progress + '%' }")
     .main__timeline__anchor(draggable, ng-model="progress", data-month="{{ months[today.getMonth()] | translate }}") 
       | {{ today.getDate() }}
+      
   .main__weeks
+    .main__weeks__legend
+      | {{ "new_weekly_cases" | translate }}
     .main__weeks__slot(ng-repeat="week in ::weeks")
       .main__weeks__slot__outline
         .victims-animation(ng-show="progressFilter($index)")

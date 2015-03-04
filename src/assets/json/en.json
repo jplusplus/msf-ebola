@@ -1,8 +1,8 @@
 {
   "app_title":"app_title",
   "center":"center",
-  "ten_staff":"10 MSF staff",
-  "ten_admitted":"10 new weekly admissions",
+  "five_staff":"5 MSF staff",
+  "five_admitted":"5 new weekly admissions",
   "dead":"Since March 2014, {{death_total}} died of Ebola",
   "cases":"{{cases_total}} contracted the virus",
   "cured_by_msf":"{{recovered_msf_cumulative}} were cured by MSF",

@@ -33,7 +33,7 @@
 
     &__stack {
       margin:0;
-      padding:0 10px;
+      padding:0;
       display:inline-block;
       height:45px;
       background:fade(white, 40);
@@ -51,6 +51,10 @@
         background:mix(@brand-primary, white, 85);
       }
 
+      &--msf-admitted {
+        background:darken(@brand-success, 5);
+      }
+
       &--msf-cured {
         background:@brand-success;
         overflow:visible;
@@ -63,7 +67,8 @@
         font-size:12px;
       }
 
-      &--msf-cured &__figure{
+      &--msf-cured &__figure,
+      &--msf-admitted &__figure{
         right:100%;
         left:auto;
         margin-right:10px;
@@ -202,7 +207,7 @@
 
       &__staff {
         margin-top:-0.6em;
-        color: inherit;
+        color: #fff600;
       }
 
       &__admitted {
@@ -223,6 +228,10 @@
       font-weight:bold;
       i {
         text-shadow:0 1px 1px fade(black, 50);
+      }
+
+      &--staff i {
+        color:#fff600;
       }
     }
   }

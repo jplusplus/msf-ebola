@@ -8,7 +8,7 @@
       li.main__legend__item
         i.fa.fa-fw.fa-circle.text-success
         | &nbsp; {{ 'administrative_center' | translate }}
-      li.main__legend__item
+      li.main__legend__item.main__legend__item--staff
         i.fa.fa-fw.fa-male.text-success
         | &nbsp; {{ 'five_staff' | translate }}
       li.main__legend__item
@@ -33,7 +33,10 @@
     .main__chart__stack.main__chart__stack--case(ng-style="figureStyle(day.regional_data.cases_total)")
       span.main__chart__stack__figure
         {{ "cases" | translate: { cases_total: (day.regional_data.cases_total | decade) } }}
-    .main__chart__stack.main__chart__stack--msf-cured(ng-style="figureStyle(day.regional_data.recovered_msf_cumulative)")
+    .main__chart__stack.main__chart__stack--msf-admitted(ng-style="figureStyle(day.regional_data.admitted_msf_cumulative)")
+      span.main__chart__stack__figure
+        {{ "admitted_by_msf" | translate: { admitted_msf_cumulative: (day.regional_data.admitted_msf_cumulative  | decade) } }}
+    .main__chart__stack.main__chart__stack--msf-cured(ng-style="figureStyle(day.regional_data.recovered_msf_cumulative)", ng-show="day.regional_data.recovered_msf_cumulative")
       span.main__chart__stack__figure
         {{ "cured_by_msf" | translate: { recovered_msf_cumulative: (day.regional_data.recovered_msf_cumulative | decade) } }}
 

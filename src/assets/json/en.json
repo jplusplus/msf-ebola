@@ -29,5 +29,9 @@
   "other":"Other",
   "gin":"Guinea",
   "lbr":"Liberia",
-  "sle":"Sierra Leone"
+  "sle":"Sierra Leone",
+  "share": "share",
+  "embed": "embed",
+  "share_desc": "share_desc",
+  "embed_desc": "embed_desc"
 }

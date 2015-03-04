@@ -6,8 +6,7 @@
       .col-sm-6
         h4 {{ "share" | translate }}
         p {{ "share_desc" | translate }}
-        ul.pull-left(ng-social-buttons
-            data-url="'http://index.rsf.org'")
+        ul.pull-left(ng-social-buttons)
             li.ng-social-facebook Facebook
             li.ng-social-google-plus Google
         ul(ng-social-buttons
@@ -20,4 +19,4 @@
       .col-sm-6
         h4 {{ "embed" | translate }}
         p {{ "embed_desc" | translate }}
-        textarea.form-control(readonly) {{ getIframe() }}
+        textarea.form-control(readonly, rows=3) {{ getIframe() }}

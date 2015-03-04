@@ -9,6 +9,8 @@ div(ng-controller="MenuCtrl")
       li
         a(ui-sref="about") {{ 'about' | translate }}
       li
+        a(ng-click="share()") {{ 'share' | translate }}
+      li
         a(ng-click="showLanguages = !showLanguages") 
           i.caret.menu__links__icon
           | {{ 'language' | translate }}

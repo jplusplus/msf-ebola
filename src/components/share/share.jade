@@ -1,0 +1,23 @@
+.share
+  .modal-body
+    button(type="button", class="close share__close", ng-click="close()")
+      span(aria-hidden="true") &times;
+    .row
+      .col-sm-6
+        h4 {{ "share" | translate }}
+        p {{ "share_desc" | translate }}
+        ul.pull-left(ng-social-buttons
+            data-url="'http://index.rsf.org'")
+            li.ng-social-facebook Facebook
+            li.ng-social-google-plus Google
+        ul(ng-social-buttons
+             data-url="' '"
+             data-title="'tweet_text'  | translate"
+             data-description="'app_desc'  | translate"
+             data-image="'app_img'  | translate")
+            li.ng-social-twitter Twitter
+
+      .col-sm-6
+        h4 {{ "embed" | translate }}
+        p {{ "embed_desc" | translate }}
+        textarea.form-control(readonly) {{ getIframe() }}

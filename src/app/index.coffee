@@ -7,4 +7,5 @@ angular.module "msfEbola", [
   'ui.bootstrap'
   'leaflet-directive'
   'pascalprecht.translate'
+  'ngSocial'
 ]

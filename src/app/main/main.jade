@@ -10,24 +10,24 @@
         | &nbsp; {{ 'administrative_center' | translate }}
       li.main__legend__item
         i.fa.fa-fw.fa-male.text-success
-        | &nbsp; {{ 'ten_staff' | translate }}
+        | &nbsp; {{ 'five_staff' | translate }}
       li.main__legend__item
         i.fa.fa-fw.fa-male.text-primary
-        | &nbsp; {{ 'ten_admitted' | translate }}
-        
+        | &nbsp; {{ 'five_admitted' | translate }}
+
   .main__highlights
-    .main__highlights__item(ng-repeat="highlight in highlights", ng-show="highlightFilter(highlight)")      
+    .main__highlights__item(ng-repeat="highlight in highlights", ng-show="highlightFilter(highlight)")
       .main__highlights__item__wrapper
         div(ng-bind-html="highlight.translation_key | translate")
-    .main__highlights__item(ng-show="displayFinalHighlight")      
+    .main__highlights__item(ng-show="displayFinalHighlight")
       .main__highlights__item__wrapper
         div(ng-bind-html="'final_highlight' | translate")
         .text-center
           a.introduction__step__next(ng-click="displayFinalHighlight = false")
             i.fa.fa-arrow-circle-right.fa-2x
-        
+
   .main__chart
-    .main__chart__stack.main__chart__stack--dead(ng-style="figureStyle(day.regional_data.death_total)") 
+    .main__chart__stack.main__chart__stack--dead(ng-style="figureStyle(day.regional_data.death_total)")
       span.main__chart__stack__figure
         {{ "dead" | translate: { death_total: (day.regional_data.death_total | decade) } }}
     .main__chart__stack.main__chart__stack--case(ng-style="figureStyle(day.regional_data.cases_total)")
@@ -36,12 +36,12 @@
     .main__chart__stack.main__chart__stack--msf-cured(ng-style="figureStyle(day.regional_data.recovered_msf_cumulative)")
       span.main__chart__stack__figure
         {{ "cured_by_msf" | translate: { recovered_msf_cumulative: (day.regional_data.recovered_msf_cumulative | decade) } }}
-      
+
   .main__timeline
     .main__timeline__cursor(ng-style="{ width: progress + '%' }")
-    .main__timeline__anchor(draggable, ng-model="progress", data-month="{{ months[today.getMonth()] | translate }}") 
+    .main__timeline__anchor(draggable, ng-model="progress", data-month="{{ months[today.getMonth()] | translate }}")
       | {{ today.getDate() }}
-      
+
   .main__weeks
     .main__weeks__legend
       | {{ "new_weekly_cases" | translate }}
@@ -51,7 +51,7 @@
           .main__weeks__slot__outline__victim(ng-repeat="victim in ::week.victims track by $index")
         .clearfix
         .main__weeks__slot__outline__popover(ng-class="{ 'main__weeks__slot__outline__popover--rtl': $index < weeksCount/3 }")
-          h4.main__weeks__slot__outline__popover__title 
+          h4.main__weeks__slot__outline__popover__title
             | {{ week.start | date:('date_format' | translate) }}
             | →
             | {{ week.end | date:('date_format' | translate) }}
@@ -59,4 +59,4 @@
              li(ng-repeat="place in ::week.places | orderBy:'-weekly_new_cases'", ng-show="::popoverFilter(place)")
                em.pull-right &nbsp;{{ place.weekly_new_cases }}
                strong {{ place.code | lowercase | translate }}
-               
+

@@ -175,6 +175,22 @@
         .main__map__center__admitted { margin-top:0; }
       }
 
+      &__wrapper[data-name='Bo - Sierra Leone'] {
+        .main__map__center__staff { margin-top:0; }
+        .main__map__center__admitted { margin-top:1.2em; }
+      }
+
+      &__wrapper[data-open='false'] {
+        filter: grayscale(100%);
+        -webit-filter: grayscale(100%);
+        opacity:0.5;
+
+        &__staff,
+        &__admitted {
+          display:none;
+        }
+      }
+
       &__staff,
       &__admitted {
         position:absolute;

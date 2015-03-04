@@ -7,10 +7,10 @@ angular.module "msfEbola"
     iconCte:
       type: 'div'
       className: 'main__map__center main__map__center--cte'
-      iconSize: [30, 30]
+      iconSize: [20, 20]
       popupAnchor:  [0, 0]
       template: _.template [
-        '<div class="main__map__center__wrapper" data-name="<%- name %>">'
+        '<div class="main__map__center__wrapper" data-name="<%- name %>" data-open="<%- open %>">'
           '<i class="main__map__center__marker fa fa-dot-circle-o"></i>'
           '<div class="main__map__center__staff"><%= staff %></div>'
           '<div class="main__map__center__admitted"><%= admitted %></div>'

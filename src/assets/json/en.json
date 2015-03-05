@@ -6,7 +6,7 @@
   "five_admitted":"5 new weekly admissions",
   "dead":"Since March 2014, {{death_total}} died of Ebola",
   "cases":"{{cases_total}} contracted the virus",
-  "admitted_by_msf": "{{admitted_by_msf}} were admitted by MSF",
+  "admitted_by_msf": "{{admitted_msf_cumulative}} were admitted by MSF",
   "cured_by_msf":"of which {{recovered_msf_cumulative}} recovered",
   "january":"January",
   "february":"February",

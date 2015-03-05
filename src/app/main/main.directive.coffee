@@ -8,15 +8,17 @@ angular.module('msfEbola')
       parent = anchor.parent()
       # Starting day
       day = 0
+      # Calculates the progression of the frame
+      anchor_frame = -> anchor.css("left").replace("px", "") / parent.width()
       # Function to start the animation
       start = ->
         # Starts the animation
         anchor.velocity { left: '100%' },
-          duration: main.duration,
+          duration: ( 1 - do anchor_frame ) * main.duration,
           easing: 'linear',
           progress: ->
             # Calculate the position of the anchor dynamicly
-            frame = anchor.css("left").replace("px", "") / parent.width()
+            frame = do anchor_frame
             # Calculate the current day
             now = ~~(365 * frame)
             # Update the view value when the current

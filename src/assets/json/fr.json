@@ -37,5 +37,9 @@
   "embed_desc":"embed_desc",
   "tweet_text":"tweet_text",
   "app_desc":"app_desc",
-  "app_img":"app_img"
+  "app_img":"app_img",
+  "introduction_1":"introduction_1",
+  "introduction_2":"introduction_2",
+  "introduction_3":"introduction_3",
+  "introduction_4":"introduction_4"
 }

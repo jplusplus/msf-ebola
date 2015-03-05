@@ -1,21 +1,21 @@
 .introduction(ng-switch="step", ng-class="'introduction--step-' + step")
   .introduction__step(ng-switch-when="0")
-    p Across the sea of space, the stars are other suns.    
+    p {{ 'introduction_1' | translate }}
     .text-center
       a.introduction__step__next(ng-click="$parent.step = 1")
         i.fa.fa-arrow-circle-right.fa-2x
   .introduction__step(ng-switch-when="1")
-    p The sky is the limit only for those who aren't afraid to fly!
+    p {{ 'introduction_2' | translate }}
     .text-center
       a.introduction__step__next(ng-click="$parent.step = 2")
         i.fa.fa-arrow-circle-right.fa-2x
   .introduction__step(ng-switch-when="2")
-    p I believe every human has a finite number of heartbeats. I don't intend to waste any of mine
+    p {{ 'introduction_3' | translate }}
     .text-center
       a.introduction__step__next(ng-click="$parent.step = 3")
         i.fa.fa-arrow-circle-right.fa-2x
   .introduction__step(ng-switch-when="3")
-    p What was most significant about the lunar voyage was not that man set foot on the Moon but that they set eye on the earth.
+    p {{ 'introduction_4' | translate }}
     .text-center
       a.introduction__step__next(ui-sref="main")
         i.fa.fa-arrow-circle-right.fa-2x

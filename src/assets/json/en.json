@@ -30,12 +30,12 @@
   "gin":"Guinea",
   "lbr":"Liberia",
   "sle":"Sierra Leone",
-  "new_weekly_cases": "New weekly cases",
-  "share": "share",
-  "embed": "embed",
-  "share_desc": "share_desc",
-  "embed_desc": "embed_desc",
-  "tweet_text": "tweet_text",
-  "app_desc": "app_desc",
-  "app_img": "app_img"
+  "new_weekly_cases":"New weekly cases",
+  "share":"share",
+  "embed":"embed",
+  "share_desc":"share_desc",
+  "embed_desc":"embed_desc",
+  "tweet_text":"tweet_text",
+  "app_desc":"app_desc",
+  "app_img":"app_img"
 }

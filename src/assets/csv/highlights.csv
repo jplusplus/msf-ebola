@@ -1,7 +1,7 @@
-date_start,date_end,translation_key
-2014-05-12,2014-05-14,highlight_1
-2014-06-21,2014-06-24,highlight_2
-2014-07-20,2014-07-24,highlight_3
-2014-08-18,2014-08-22,highlight_4
-2014-09-30,2014-10-03,highlight_5
-2015-01-21,2015-01-25,highlight_6
+date_start,translation_key,duration
+2014-05-12,highlight_1,2500
+2014-06-21,highlight_2,2500
+2014-07-20,highlight_3,2500
+2014-08-18,highlight_4,2500
+2014-09-30,highlight_5,2500
+2015-01-21,highlight_6,2500

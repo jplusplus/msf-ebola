@@ -1,5 +1,5 @@
 angular.module "msfEbola"
-  .controller "MainCtrl", ($scope, $rootScope, $compile, $stateParams, leafletData, main, days, centers, highlights) ->
+  .controller "MainCtrl", ($scope, $rootScope, $compile, $stateParams, $timeout, leafletData, main, days, centers, highlights) ->
     # Used to create a center marker
     createCenter = (center)->
       # A day must be selected
@@ -57,8 +57,6 @@ angular.module "msfEbola"
     $scope.weeks = {}
     # Count weeks
     weeksCount = 0
-
-
     # Extract week date from the first day of each week
     for data in days
       unless data.day % 7
@@ -83,8 +81,6 @@ angular.module "msfEbola"
         data.end = new Date data.timestamp*1000 + 7 * 24 * 60 * 60 * 1000
         # Save the date for this week
         $scope.weeks[data.timestamp] = data
-
-
     # Save the week count into the scope
     $scope.weeksCount = weeksCount
     # Map's settings
@@ -94,9 +90,12 @@ angular.module "msfEbola"
     # The given highlight is visible only for a moment
     $scope.highlightFilter = (highlight)->
       highlight.date_start <= $scope.today.getTime() and
-      highlight.date_end >= $scope.today.getTime() and
+      # The date end is always one day after the begining
+      highlight.date_start + (24*60*60*1000) >= $scope.today.getTime() and
       # Highlights appear only during the animation
       $scope.isAnimating
+    # True if an highlight is currently visible
+    $scope.lastHighlight = -> _.find highlights, $scope.highlightFilter
     # Calculates the date for the current progress value
     $scope.progressDate = ->
       # Create a new date object
@@ -127,13 +126,28 @@ angular.module "msfEbola"
         $scope.day = data
       # Customize icons for each center
       $scope.centers = _.map centers, createCenter
+      # Find the last highlight
+      highlight = do $scope.lastHighlight
+      # There is a new highlight
+      if highlight? and $scope.highlight isnt highlight
+        # Stop this animation if there is an highlight visible
+        $rootScope.$broadcast "main:cancel"
+        # Save the highlight
+        $scope.highlight = highlight
+        # Start again in a few milliseconds
+        $timeout (->$rootScope.$broadcast "main:play"), highlight.duration
+
     # Wait for click on marker
     $scope.$on 'leafletDirectiveMarker.click', openCenter
     # The animation starts
-    $scope.$on 'main:start', ->
-       $scope.isAnimating = yes
-       # Cancel this animation
-       $rootScope.$broadcast "main:cancel" if 1*$stateParams.skip
+    $scope.$on 'main:play', ->
+      $scope.isAnimating = yes
+      # User may skip the animation
+      if 1*$stateParams.skip
+        # Cancel this animation
+        $rootScope.$broadcast "main:cancel"
+        # Notice the end of the animation
+        $rootScope.$broadcast "main:end"
     # The animation stops
     $scope.$on 'main:end', ->
       $scope.isAnimating = no

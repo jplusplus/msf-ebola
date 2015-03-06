@@ -29,16 +29,16 @@
   .main__chart
     .main__chart__stack.main__chart__stack--dead(ng-style="figureStyle(day.regional_data.death_total)")
       span.main__chart__stack__figure
-        {{ "dead" | translate: { death_total: (day.regional_data.death_total | decade) } }}
+        span(ng-bind-html='"dead" | translate: { death_total: (day.regional_data.death_total | decade) }')
     .main__chart__stack.main__chart__stack--case(ng-style="figureStyle(day.regional_data.cases_total)")
       span.main__chart__stack__figure
-        {{ "cases" | translate: { cases_total: (day.regional_data.cases_total | decade) } }}
-    .main__chart__stack.main__chart__stack--msf-admitted(ng-style="figureStyle(day.regional_data.admitted_msf_cumulative)", ng-show="day.regional_data.admitted_msf_cumulative > 0")
+        span(ng-bind-html='"cases" | translate: { cases_total: (day.regional_data.cases_total | decade) }')
+    .main__chart__stack.main__chart__stack--msf-admitted(ng-style="figureStyle(day.regional_data.admitted_msf_cumulative_w)", ng-show="day.regional_data.admitted_msf_cumulative > 0")
       span.main__chart__stack__figure
-        {{ "admitted_by_msf" | translate: { admitted_msf_cumulative: (day.regional_data.admitted_msf_cumulative  | decade) } }}
+        span(ng-bind-html='"admitted_by_msf" | translate: { admitted_msf_cumulative: (day.regional_data.admitted_msf_cumulative  | decade) }')
     .main__chart__stack.main__chart__stack--msf-cured(ng-style="figureStyle(day.regional_data.recovered_msf_cumulative)", ng-show="day.regional_data.recovered_msf_cumulative > 0")
       span.main__chart__stack__figure
-        {{ "cured_by_msf" | translate: { recovered_msf_cumulative: (day.regional_data.recovered_msf_cumulative | decade) } }}
+        span(ng-bind-html='"cured_by_msf" | translate: { recovered_msf_cumulative: (day.regional_data.recovered_msf_cumulative | decade) }')
 
   .main__timeline
     .main__timeline__cursor(ng-style="{ width: progress + '%' }")

@@ -109,7 +109,7 @@ angular.module "msfEbola"
     # Get the width style of the given figure in propertion to the total
     $scope.figureStyle = (figure)->
       data = $scope.day.regional_data
-      total = data.death_total + data.cases_total + data.admitted_msf_cumulative + data.recovered_msf_cumulative
+      total = data.death_total + data.cases_total + data.admitted_msf_cumulative_w + data.recovered_msf_cumulative
       if total is 0
         width: Math.round(100/4) + "%"
       else

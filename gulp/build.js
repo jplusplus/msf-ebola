@@ -83,21 +83,16 @@ gulp.task('misc', function () {
 gulp.task('csv', function(){
   return gulp.src(['src/assets/csv/*.csv'])
     .pipe($.convert({ from: 'csv', to: 'json' }))
-    .pipe(gulp.dest('.tmp/assets/json/'))
-    .pipe(gulp.dest('dist/assets/json/'));
+    .pipe(gulp.dest(paths.tmp + '/serve/assets/json/'))
+    .pipe(gulp.dest(paths.dist + '/assets/json/'));
 });
 
-gulp.task('assets:dist', function () {
+gulp.task('assets', function () {
   return gulp.src('src/assets/{fonts,json}/**/*')
-    .pipe(gulp.dest('dist/assets/'));
+    .pipe(gulp.dest(paths.dist + '/assets/'))
+    .pipe(gulp.dest(paths.tmp + '/serve/assets/'));
 });
 
-gulp.task('assets:tmp', function () {
-  return gulp.src('dist/assets/{fonts,json}/**/*')
-    .pipe(gulp.dest('.tmp/serve/assets/'));
-});
-
-gulp.task('assets', ['csv', 'assets:dist', 'assets:tmp']);
 
 gulp.task('clean', function (done) {
   $.del([paths.dist + '/', paths.tmp + '/'], done);

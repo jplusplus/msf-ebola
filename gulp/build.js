@@ -87,7 +87,7 @@ gulp.task('csv', function(){
     .pipe(gulp.dest(paths.dist + '/assets/json/'));
 });
 
-gulp.task('assets', function () {
+gulp.task('assets', ['csv'], function () {
   return gulp.src('src/assets/{fonts,json}/**/*')
     .pipe(gulp.dest(paths.dist + '/assets/'))
     .pipe(gulp.dest(paths.tmp + '/serve/assets/'));

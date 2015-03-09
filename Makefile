@@ -7,15 +7,16 @@ build:
 install:
 	npm install
 	./node_modules/.bin/bower install
-	gulp wiredep
+	gulp inject
 
-deploy:
-	gulp deploy
+deploy: build
+	divshot push
+
 
 full_deploy: crowdin_download
 	git commit ./locale -m "Updated locale" || true
 	git pull --rebase
-	gulp deploy
+	make deploy
 
 zip: build
 	(cd dist; zip -r ../msf-ebola.zip .)

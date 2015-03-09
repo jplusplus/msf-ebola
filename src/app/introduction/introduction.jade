@@ -2,20 +2,20 @@
   .introduction__step(ng-switch-when="0")
     p {{ 'introduction_1' | translate }}
     .text-center
-      a.introduction__step__next(ng-click="$parent.step = 1")
+      a.introduction__step__next(ng-click="next()")
         i.fa.fa-arrow-circle-right.fa-2x
   .introduction__step(ng-switch-when="1")
     p {{ 'introduction_2' | translate }}
     .text-center
-      a.introduction__step__next(ng-click="$parent.step = 2")
+      a.introduction__step__next(ng-click="next()")
         i.fa.fa-arrow-circle-right.fa-2x
   .introduction__step(ng-switch-when="2")
     p {{ 'introduction_3' | translate }}
     .text-center
-      a.introduction__step__next(ng-click="$parent.step = 3")
+      a.introduction__step__next(ng-click="next()")
         i.fa.fa-arrow-circle-right.fa-2x
   .introduction__step(ng-switch-when="3")
     p {{ 'introduction_4' | translate }}
     .text-center
-      a.introduction__step__next(ui-sref="main")
+      a.introduction__step__next(ng-click="next()")
         i.fa.fa-arrow-circle-right.fa-2x

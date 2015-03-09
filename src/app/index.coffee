@@ -8,4 +8,5 @@ angular.module "msfEbola", [
   'leaflet-directive'
   'pascalprecht.translate'
   'ngSocial'
+  'cfp.hotkeys'
 ]

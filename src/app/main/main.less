@@ -1,6 +1,6 @@
 .main {
   @chart-height: 45px + (15px*2px);
-  @map-height: 450px;
+  @map-height: 500px;
 
   z-index:@zindex-main;
   position:relative;
@@ -152,7 +152,7 @@
       line-height:30px;
       text-align:center;
       color:@brand-success;
-      font-size:1.4em;
+      font-size:2em;
       white-space:nowrap;
       text-shadow:0 1px 1px fade(black, 40);
 
@@ -167,7 +167,7 @@
         .main__map__center__admitted {
           left:50%;
           right:auto;
-          .translate(0.7em, -50%);
+          .translate(1em, -50%);
         }
       }
 
@@ -176,7 +176,8 @@
         .main__map__center__admitted { margin-top:1.2em; }
       }
 
-      &__wrapper[data-name='Gueckedou - Guinea'] {
+      &__wrapper[data-name='Gueckedou - Guinea'],
+      &__wrapper[data-name='Kailahun - Sierra Leone'] {
         .main__map__center__staff { margin-top:-1.2em; }
         .main__map__center__admitted { margin-top:0; }
       }
@@ -202,7 +203,7 @@
         position:absolute;
         right:50%;
         top:50%;
-        .translate(-0.7em, -50%);
+        .translate(-1em, -50%);
         font-size:0.9em;
       }
 

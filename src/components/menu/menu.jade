@@ -1,7 +1,7 @@
 div(ng-controller="MenuCtrl")
-  a.menu-toggler(ng-click="visibleMenu = !visibleMenu", ng-class="{'menu-toggler--active': visibleMenu}")
+  a.menu-toggler(ng-click="visibleMenu = !visibleMenu", ng-class="{'menu-toggler--active': visibleMenu }")
     i.fa.fa-bars
-  .menu(ng-class="{'menu--collapse': !visibleMenu}")
+  .menu.menu--disable(ng-class="{'menu--collapse': !visibleMenu, 'menu--disable': isAnimating}")
     a.menu__logo(tile="Médecins Sans Frontières", ui-sref="main")
     .menu__headline
       |  {{ 'msf_headline' | translate }}
@@ -11,7 +11,7 @@ div(ng-controller="MenuCtrl")
       li
         a(ng-click="share()") {{ 'share' | translate }}
       li
-        a(ng-click="showLanguages = !showLanguages") 
+        a(ng-click="showLanguages = !showLanguages")
           i.caret.menu__links__icon
           | {{ 'language' | translate }}
     ul.menu__languages.list-unstyled(ng-show="showLanguages")
@@ -20,15 +20,15 @@ div(ng-controller="MenuCtrl")
 
     ul.menu__social.list-inline.text-center
       li
-        a 
-          i.fa.fa-fw.fa-twitter      
-          span.sr-only Twitter      
+        a
+          i.fa.fa-fw.fa-twitter
+          span.sr-only Twitter
       li
-        a 
+        a
           i.fa.fa-fw.fa-facebook
           span.sr-only Facebook
       li
-        a 
+        a
           i.fa.fa-fw.fa-google-plus
           span.sr-only Google+
     a.menu__credits(href="http://jplusplus.org", target="_blank")

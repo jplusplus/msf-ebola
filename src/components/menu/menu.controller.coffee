@@ -6,3 +6,10 @@ angular.module "msfEbola"
       $scope.showLanguages = no
     # Open the share popup
     $scope.share = Share.open
+
+    # Consider that we are animating by default
+    $scope.isAnimating = yes
+    # The animation starts
+    $scope.$on 'main:play', -> $scope.isAnimating = yes
+    # The animation stops
+    $scope.$on 'main:end', -> $scope.isAnimating = no

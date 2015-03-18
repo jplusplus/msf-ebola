@@ -40,6 +40,10 @@
     &--collapse {
       .translate(-100%, 0);
     }
+
+    &__headline {
+      margin-left:40px;
+    }
   }
 
 
@@ -51,22 +55,25 @@
     margin:20px auto;
     background: url("../assets/images/msf-logo.png") no-repeat;
     background-size: 100% auto;
-    width: 208px;
-    height: 89px;
+    width: 180px;
+    height: 180px * 0.427885px;
     display:block;
   }
 
   &__headline {
     font-style:italic;
-    padding:10px 10px;
-    font-size:0.9em;
+    padding:25px 10px;
+    font-size:1em;
     text-align:center;
     font-weight:100;
     line-height:1em;
   }
 
+  &__links {
+    border-top:1px solid mix(@menu-bg, white, 90);
+  }
+
   &__links, &__languages {
-    margin-top:20px;
     margin-bottom:0;
 
     li > a {
@@ -119,7 +126,9 @@
   }
 
   &__social {
-    margin-top:20px;
+    height:40px;
+    line-height:40px;
+    border-bottom:1px solid mix(@menu-bg, white, 90);
   }
 
   &__credits {

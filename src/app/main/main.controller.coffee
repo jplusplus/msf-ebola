@@ -152,3 +152,10 @@ angular.module "msfEbola"
     $scope.$on 'main:end', ->
       $scope.isAnimating = no
       $scope.displayFinalHighlight = yes
+    # The animation is skiped
+    $scope.$on 'main:skip', ->
+      console.log "SKIP"
+      # Notice the end of the animation
+      $rootScope.$broadcast "main:cancel"
+      $scope.isAnimating = no
+      $scope.displayFinalHighlight = no

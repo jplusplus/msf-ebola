@@ -1,5 +1,5 @@
 angular.module('msfEbola')
-  .directive 'main', ($rootScope, main) ->
+  .directive 'main', ($rootScope, $state, main) ->
     restrict: 'C'
     require: 'ngModel'
     link: (scope, element, attr, ngModel)->
@@ -37,5 +37,6 @@ angular.module('msfEbola')
       scope.$on "main:play", start
       # Stops the animation using velocity
       scope.$on "main:cancel", -> anchor.velocity "stop"
-      # Notice the begining of the animation
-      $rootScope.$broadcast "main:play"
+      # Notice the begining of the animation (or not)
+      next = if $state.params.skip is "1" then "main:skip" else "main:play"
+      $rootScope.$broadcast next

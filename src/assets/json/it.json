@@ -8,6 +8,7 @@
   "cases":"{{cases_total}} contracted the virus",
   "admitted_by_msf":"{{admitted_msf_cumulative}} were admitted by MSF",
   "cured_by_msf":"of which {{recovered_msf_cumulative}} recovered",
+  "explore_data":"Explore the data",
   "january":"January",
   "february":"February",
   "march":"March",

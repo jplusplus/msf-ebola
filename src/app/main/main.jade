@@ -41,6 +41,8 @@
     .main__timeline__cursor(ng-style="{ width: progress + '%' }")
     .main__timeline__anchor(draggable, ng-model="progress", data-month="{{ months[today.getMonth()] | translate }}")
       | {{ today.getDate() }}
+    .main__timeline__months
+      .main__timeline__months__month(ng-repeat="month in ::monthTicks", ng-style="{ left: month * 100 + '%' }")
 
   .main__weeks(ng-class="{ 'main__weeks--active': showLastSlot }")
     .main__weeks__legend

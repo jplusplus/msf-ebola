@@ -83,6 +83,29 @@ angular.module "msfEbola"
         data.end = new Date data.timestamp*1000 + 7 * 24 * 60 * 60 * 1000
         # Save the date for this week
         $scope.weeks[data.timestamp] = data
+    # Create month ticks
+    $scope.monthTicks = []
+    # Find date bounds
+    start = _.min($scope.weeks, "start").start
+    end   = _.max($scope.weeks, "end").end
+    delta = end.getTime() - start.getTime()
+    # Iterate over years
+    for year in [ start.getFullYear() .. end.getFullYear() ]
+      # Iterate over months
+      for month in [ 0 .. 11 ]
+        # No before the starting month
+        if year is start.getFullYear() and month >= start.getMonth() or
+        # No after the ending month
+        year is end.getFullYear() and month <= end.getMonth() or
+        # No a bound years
+        year isnt start.getFullYear() and year isnt end.getFullYear()
+          # Create a date for this month
+          date = new Date year, month + 1
+          # Add the month position
+          $scope.monthTicks.push((date.getTime() - start.getTime()) / delta)
+
+    console.log $scope.monthTicks
+
     # Save the week count into the scope
     $scope.weeksCount = weeksCount
     # Map's settings

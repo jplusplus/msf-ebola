@@ -255,7 +255,24 @@
       pointer-events:none;
     }
 
+    &__months {
+
+      overflow: hidden;
+      position:relative;
+      height:100%;
+      z-index:@zindex-main + 15;
+
+      &__month {
+        position:absolute;
+        top:0;
+        bottom:0;
+        width:1px;
+        background: white;
+      }
+    }
+
     &__anchor {
+      z-index:@zindex-main + 20;
       font-weight:bold;
       color:white;
       text-align:center;

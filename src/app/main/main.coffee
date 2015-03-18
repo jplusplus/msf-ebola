@@ -26,4 +26,6 @@ angular.module "msfEbola"
             # Order the array for quicker calculation
             _.sortBy days, 'day'
           # Data per center
-          centers: ($http)-> $http.get("assets/json/centers.json", cache: yes).then (d)-> d.data
+          centers: ($http)-> $http.get("assets/json/centers.json", cache: yes).then (d)->
+            # Remove support and transit center
+            _.filter d.data, type: 'CTE'

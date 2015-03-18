@@ -1,6 +1,6 @@
 .main {
   @chart-height: 45px + (15px*2px);
-  @map-height: 500px;
+  @map-height: 550px;
 
   z-index:@zindex-main;
   position:relative;
@@ -192,7 +192,15 @@
       }
 
       &__wrapper[data-open='false'] {
-        display: none;
+
+        filter:grayscale(100%);
+        --webkit-filter:grayscale(100%);
+        opacity:0.8;
+
+        &__staff,
+        &__admitted {
+          display: none;
+        }
       }
 
       &__staff,

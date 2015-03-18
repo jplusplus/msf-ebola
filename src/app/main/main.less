@@ -313,6 +313,16 @@
       top:20px;
       font-size:2em;
       color:mix(@menu-bg, white);
+
+      &__launch-animation {
+
+        .transition(0.7s);
+
+        &.ng-hide {
+          filter: blur(50px);
+          opacity:0;
+        }
+      }
     }
 
     &__slot {

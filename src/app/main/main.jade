@@ -45,6 +45,11 @@
   .main__weeks(ng-class="{ 'main__weeks--active': showLastSlot }")
     .main__weeks__legend
       | {{ "new_weekly_cases" | translate }}
+      p.main__weeks__legend__launch-animation(ng-hide="isAnimating")
+        a.btn.btn-primary.btn-sm(ui-sref="main({skip: 0})", ui-sref-opts="{ reload: true }")
+          i.fa.fa-play-circle-o
+          | &nbsp; {{ 'launch_animation' | translate }}
+
     .main__weeks__slot(ng-repeat="week in ::weeks", ng-class="{ 'main__weeks__slot--last': progressFilter($index) && !progressFilter($index + 1) }")
       .main__weeks__slot__outline
         .victims-animation(ng-show="progressFilter($index)")

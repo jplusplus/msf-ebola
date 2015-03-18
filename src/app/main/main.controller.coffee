@@ -45,6 +45,8 @@ angular.module "msfEbola"
         content.html main.centerPopup
         # Compile template with the new scope
         $compile(content)(scope)
+    # Animating by default
+    $scope.isAnimating = yes
     # Every highlights must be available into the scope
     $scope.highlights = highlights
     # Months in human language

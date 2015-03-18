@@ -37,6 +37,7 @@ angular.module('msfEbola')
       scope.$on "main:play", start
       # Stops the animation using velocity
       scope.$on "main:cancel", -> anchor.velocity "stop"
+      scope.$on "main:skip", -> anchor.velocity "stop"
       # Notice the begining of the animation (or not)
       next = if $state.params.skip is "1" then "main:skip" else "main:play"
       $rootScope.$broadcast next

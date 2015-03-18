@@ -140,22 +140,12 @@ angular.module "msfEbola"
     # Wait for click on marker
     $scope.$on 'leafletDirectiveMarker.click', openCenter
     # The animation starts
-    $scope.$on 'main:play', ->
-      $scope.isAnimating = yes
-      # User may skip the animation
-      if 1*$stateParams.skip
-        # Cancel this animation
-        $rootScope.$broadcast "main:cancel"
-        # Notice the end of the animation
-        $rootScope.$broadcast "main:end"
+    $scope.$on 'main:play', -> $scope.isAnimating = yes
     # The animation stops
     $scope.$on 'main:end', ->
       $scope.isAnimating = no
       $scope.displayFinalHighlight = yes
     # The animation is skiped
     $scope.$on 'main:skip', ->
-      console.log "SKIP"
-      # Notice the end of the animation
-      $rootScope.$broadcast "main:cancel"
       $scope.isAnimating = no
       $scope.displayFinalHighlight = no

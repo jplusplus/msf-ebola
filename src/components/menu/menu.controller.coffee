@@ -12,3 +12,4 @@ angular.module "msfEbola"
     $scope.$on 'main:play', -> $scope.isAnimating = yes
     # The animation stops
     $scope.$on 'main:end', -> $scope.isAnimating = no
+    $scope.$on 'main:skip', -> $scope.isAnimating = no

@@ -1,4 +1,4 @@
-.main.main--animating(ng-model="progress", ng-class="{ 'main--animating': isAnimating }")
+.main(ng-model="progress", ng-class="{ 'main--animating': isAnimating }")
   leaflet.main__map(center='settings.center', markers="centers", tiles="settings.tiles", maxbounds="settings.maxbounds", defaults="settings.defaults")
   .main__legend
     ul.list-unstyled
@@ -44,7 +44,7 @@
 
   .main__weeks(ng-class="{ 'main__weeks--active': showLastSlot }")
     .main__weeks__legend
-      | {{ "new_weekly_cases" | translate }}
+      | {{ "new_weekly_cases" | translate }} {{ isAnimating | json }}
     .main__weeks__slot(ng-repeat="week in ::weeks", ng-class="{ 'main__weeks__slot--last': progressFilter($index) && !progressFilter($index + 1) }")
       .main__weeks__slot__outline
         .victims-animation(ng-show="progressFilter($index)")

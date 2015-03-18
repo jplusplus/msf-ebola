@@ -295,6 +295,10 @@
     width:~"calc(100% - 40px)";
     position:relative;
 
+    .main--animating & {
+      pointer-events:none;
+    }
+
     &__legend {
       position:absolute;
       left:0px;
@@ -323,7 +327,8 @@
           .box-shadow(-1px 0 0 0 white);
         }
 
-        &:hover {
+        &:hover,
+        .main__weeks--active .main__weeks__slot--last & {
           z-index:20;
 
           &:after {
@@ -332,7 +337,8 @@
 
         }
 
-        &:hover &__popover {
+        &:hover &__popover,
+        .main__weeks--active .main__weeks__slot--last &__popover {
           display:block;
         }
 

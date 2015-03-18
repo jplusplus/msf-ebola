@@ -40,15 +40,15 @@
       span.main__chart__stack__figure
         span(ng-bind-html='"cured_by_msf" | translate: { recovered_msf_cumulative: (day.regional_data.recovered_msf_cumulative | decade) }')
 
-  .main__timeline
+  .main__timeline(ng-mouseenter="showLastSlot = true", ng-mouseleave="showLastSlot = false")
     .main__timeline__cursor(ng-style="{ width: progress + '%' }")
     .main__timeline__anchor(draggable, ng-model="progress", data-month="{{ months[today.getMonth()] | translate }}")
       | {{ today.getDate() }}
 
-  .main__weeks
+  .main__weeks(ng-class="{ 'main__weeks--active': showLastSlot }")
     .main__weeks__legend
       | {{ "new_weekly_cases" | translate }}
-    .main__weeks__slot(ng-repeat="week in ::weeks")
+    .main__weeks__slot(ng-repeat="week in ::weeks", ng-class="{ 'main__weeks__slot--last': progressFilter($index) && !progressFilter($index + 1) }")
       .main__weeks__slot__outline
         .victims-animation(ng-show="progressFilter($index)")
           .main__weeks__slot__outline__victim(ng-repeat="victim in ::week.victims track by $index")
@@ -62,4 +62,3 @@
              li(ng-repeat="place in ::week.places | orderBy:'-weekly_new_cases'", ng-show="::popoverFilter(place)")
                em.pull-right &nbsp;{{ place.weekly_new_cases }}
                strong {{ place.code | lowercase | translate }}
-

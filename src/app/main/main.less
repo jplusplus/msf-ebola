@@ -192,14 +192,7 @@
       }
 
       &__wrapper[data-open='false'] {
-        filter: grayscale(100%);
-        -webit-filter: grayscale(100%);
-        opacity:0.5;
-
-        &__staff,
-        &__admitted {
-          display:none;
-        }
+        display: none;
       }
 
       &__staff,
@@ -207,8 +200,8 @@
         position:absolute;
         right:50%;
         top:50%;
-        .translate(-0.8em, -50%);
         font-size:0.9em;
+        .translate(-0.8em, -50%);
       }
 
       &__staff {

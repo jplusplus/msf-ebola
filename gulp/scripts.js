@@ -8,7 +8,7 @@ var $ = require('gulp-load-plugins')();
 
 gulp.task('scripts', ['languages'], function () {
   return gulp.src(paths.src + '/{app,components}/**/*.coffee')
-    .pipe($.coffeelint({max_line_length: false}))
+    .pipe($.coffeelint())
     .pipe($.coffeelint.reporter())
     .pipe($.coffee())
     .on('error', function handleError(err) {

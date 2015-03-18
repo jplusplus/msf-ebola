@@ -44,7 +44,7 @@
 
   .main__weeks(ng-class="{ 'main__weeks--active': showLastSlot }")
     .main__weeks__legend
-      | {{ "new_weekly_cases" | translate }} {{ isAnimating | json }}
+      | {{ "new_weekly_cases" | translate }}
     .main__weeks__slot(ng-repeat="week in ::weeks", ng-class="{ 'main__weeks__slot--last': progressFilter($index) && !progressFilter($index + 1) }")
       .main__weeks__slot__outline
         .victims-animation(ng-show="progressFilter($index)")

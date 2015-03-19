@@ -2,7 +2,7 @@ angular.module "msfEbola"
   .config ($stateProvider) ->
     $stateProvider
       .state "introduction",
-        url: "/",
+        url: "/?lang",
         templateUrl: "app/introduction/introduction.html",
         controller: "IntroductionCtrl"
         params:

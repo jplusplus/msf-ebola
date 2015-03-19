@@ -1,5 +1,5 @@
 angular.module "msfEbola"
-  .controller "IntroductionCtrl", ($scope, $stateParams, $state, $stateParams, $translate, hotkeys) ->  	
+  .controller "IntroductionCtrl", ($scope, $stateParams, $state, $translate, hotkeys) ->
     $scope.step = $stateParams.step or 0
     $scope.next =  ->
       if $scope.step < 3

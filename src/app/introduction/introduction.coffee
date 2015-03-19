@@ -7,6 +7,7 @@ angular.module "msfEbola"
         controller: "IntroductionCtrl"
         params:
           step: null
+          url: null
         resolve:
           preload: ($q, $http)-> $q.all [
             $http.get "assets/json/days.json", cache: yes

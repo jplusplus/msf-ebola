@@ -11,7 +11,7 @@ angular.module "msfEbola"
         centerData = $scope.day.centers[center.name]
         # Count by types
         staff = Math.ceil(centerData.staff_count / 5)
-        admitted = Math.ceil(centerData.weekly_new_admissions / 5)
+        admitted = Math.ceil(centerData.weekly_new_admissions_rolling_avg / 5)
         # Create the icon using a template to visualize data
         center.icon = angular.extend angular.copy(main.iconCte),
           # Generate the content of this icon

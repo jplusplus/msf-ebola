@@ -9,4 +9,5 @@ angular.module "msfEbola", [
   'pascalprecht.translate'
   'ngSocial'
   'cfp.hotkeys'
+  'btford.markdown'
 ]

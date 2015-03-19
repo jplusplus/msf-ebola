@@ -2,8 +2,6 @@ div(ng-controller="MenuCtrl")
   a.menu-toggler(ng-click="visibleMenu = !visibleMenu", ng-class="{'menu-toggler--active': visibleMenu }")
     i.fa.fa-bars
   .menu(ng-class="{'menu--collapse': !visibleMenu, 'menu--disable': isAnimating}")
-    .menu__headline
-      |  {{ 'msf_headline' | translate }}
     ul.menu__links.list-unstyled
       li
         a(ui-sref="about") {{ 'about' | translate }}
@@ -32,6 +30,9 @@ div(ng-controller="MenuCtrl")
           span.sr-only Google+
 
     a.menu__logo(tile="Médecins Sans Frontières", ui-sref="main({ skip: '1' })")
+
+    .menu__headline
+      |  {{ 'msf_headline' | translate }}
 
     a.menu__credits(href="http://jplusplus.org", target="_blank")
       img(src="http://logo-js.herokuapp.com/jpp/white/4A3B3C/", height="20")

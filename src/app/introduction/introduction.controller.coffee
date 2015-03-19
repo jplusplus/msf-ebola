@@ -8,7 +8,6 @@ angular.module "msfEbola"
         $state.go 'main'
 
     if $stateParams.lang?
-    	console.log $stateParams.lang
     	$translate.use $stateParams.lang
 
     hotkeys.add

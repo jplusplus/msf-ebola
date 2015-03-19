@@ -4,7 +4,7 @@ angular.module('msfEbola')
     require: 'ngModel'
     link: (scope, element, attr, ngModel) ->
       parent = element.parent()
-      startX = x = 0
+      startX = x = perc = 0
       # True when the received event is from a touch device
       isTouch = (event)-> event.type.indexOf('touch') is 0
 
@@ -12,24 +12,26 @@ angular.module('msfEbola')
         # Use a different event on touch devices
         ref= if isTouch event then event.originalEvent.touches[0] else event
         x  = ref.pageX - startX
-        px = x/parent.width()*100
-        px = Math.max( Math.min(px, 100), 0)
+        perc = x/parent.width()*100
+        perc = Math.max( Math.min(perc, 100), 0)
         # Move the element alongside its parent
-        element.css left: px + '%'
+        element.css left: perc + '%'
         # Update model value
-        ngModel.$setViewValue px
+        ngModel.$setViewValue perc
 
       mouseup = ->
         $document.off 'mousemove touchmove', mousemove
         $document.off 'mouseup touchend', mouseup
 
-      scope.$watch attr.ngModel, (px)->
-        x = (px or 0)/100 * parent.width()
-        element.css cursor: 'move', left: (px or 0) + '%'
+
+      scope.$watch attr.ngModel, (perc)->
+        x = (perc or 0)/100 * parent.width()
+        element.css cursor: 'move', left: (perc or 0) + '%'
 
       element.on 'mousedown touchstart', (event) ->
         # Prevent default dragging of selected content
         event.preventDefault()
+        x = (ngModel.$viewValue or 0)/100 * parent.width()
         # Use a different event on touch devices
         ref= if isTouch event then event.originalEvent.touches[0] else event
         startX = ref.pageX - x

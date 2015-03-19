@@ -103,9 +103,6 @@ angular.module "msfEbola"
           date = new Date year, month + 1
           # Add the month position
           $scope.monthTicks.push((date.getTime() - start.getTime()) / delta)
-
-    console.log $scope.monthTicks
-
     # Save the week count into the scope
     $scope.weeksCount = weeksCount
     # Map's settings
@@ -133,6 +130,7 @@ angular.module "msfEbola"
       start
     # Get the width style of the given figure in propertion to the total
     $scope.figureStyle = (figure)->
+      return unless $scope.day?
       data = $scope.day.regional_data
       total = data.death_total + data.cases_total + data.admitted_msf_cumulative_w + data.recovered_msf_cumulative
       if total is 0

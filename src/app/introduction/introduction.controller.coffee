@@ -7,7 +7,9 @@ angular.module "msfEbola"
       else
         $state.go 'main'
 
-    $translate.use $stateParams.lang if $stateParams.lang?
+    if $stateParams.lang?
+    	console.log $stateParams.lang
+    	$translate.use $stateParams.lang
 
     hotkeys.add
       combo: ['space', 'right']

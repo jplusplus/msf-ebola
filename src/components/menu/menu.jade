@@ -2,6 +2,7 @@ div(ng-controller="MenuCtrl")
   a.menu-toggler(ng-click="visibleMenu = !visibleMenu", ng-class="{'menu-toggler--active': visibleMenu }")
     i.fa.fa-bars
   .menu(ng-class="{'menu--collapse': !visibleMenu, 'menu--disable': isAnimating}")
+    h1.menu__app-title(ng-bind-html="'app_title' | translate ")
     ul.menu__links.list-unstyled
       li
         a(ui-sref="about") {{ 'about' | translate }}

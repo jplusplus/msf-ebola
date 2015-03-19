@@ -41,14 +41,24 @@
       .translate(-100%, 0);
     }
 
-    &__headline {
-      margin-left:40px;
+    html body  &__app-title {
+      padding-left:40px;
+      font-size:1em;
     }
   }
 
 
   &, a {
     color:white;
+  }
+
+  &__app-title {
+    font-size:1.2em;
+    text-align:center;
+    font-weight: bold;
+    background:lighten(@menu-bg, 10);
+    margin:0;
+    padding:15px 10px;
   }
 
   &__logo {
@@ -62,11 +72,15 @@
 
   &__headline {
     font-style:italic;
-    padding:25px 10px;
+    padding:10px;
     font-size:1em;
     text-align:center;
     font-weight:100;
     line-height:1em;
+  }
+
+  &__links {
+    border-top:1px solid mix(@menu-bg, white, 90);
   }
 
   &__links, &__languages {
@@ -80,7 +94,7 @@
       text-transform:uppercase;
       padding:10px;
       color:white;
-      font-size:1em;
+      font-size:0.85em;
       border-bottom:1px solid mix(@menu-bg, white, 90);
 
       &:hover, &:active {
@@ -137,7 +151,7 @@
     color: white;
 
 
-    @media (max-height: 460px) {
+    @media (max-height: 660px) {
       display:block;
       position:static;
     }

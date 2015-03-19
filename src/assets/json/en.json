@@ -1,5 +1,5 @@
 {
-  "app_title":"One year of fighting Ebola",
+  "app_title":"Pushed to the limit and beyond.<br \/>A year into the largest ever Ebola outbreak",
   "center":"Treatment center",
   "administrative_center":"Transit and support center",
   "five_staff":"5 MSF staff",
@@ -29,13 +29,15 @@
   "by_jpp":"Made by Journalism++",
   "date_format":"yyyy-MM-dd",
   "launch_animation": "Launch the animation",
-  "highlight_1":"<small>May 12:<\/small><br> First case in Conakry, a city of 2 million.",
-  "highlight_2":"<small>June 21:<\/small><br> The epidemic is <em>\"totally out of control\"<\/em>, MSF warns.",
-  "highlight_3":"<small>July 20:<\/small><br> The epidemic reaches Lagos. Population: 10 million",
-  "highlight_4":"<small>August 18:<\/small><br> MSF has 1100 staff in 5 centers fighting the virus.",
-  "highlight_5":"<small>September 30:<\/small><br> First case in the United States.",
-  "highlight_6":"<small>January 21:<\/small><br> Lowest infection rates reported since August.<br>Schools reopen in Guinea.",
-  "final_highlight":"<p>The epidemic is now contained.<br>But all it takes is <strong>one case<\/strong> to reignite it.<\/p><p>Follow MSF <a href=\"https:\/\/www.facebook.com\/msf.english\/\">on Facebook<\/a> for the latest news.<\/p>",
+  "highlight_1":"<small>March 27<\/small><br> The first Ebola cases are reported in Conakry, the capital of Guinea with more than two million inhabitants.",
+  "highlight_2":"<small>March 31:<\/small><br> MSF describes mobilising <em>\"against an unprecedented Ebola epidemic.\"<\/em>",
+  "highlight_3":"<small>June 21:<\/small><br> MSF warns the Ebola epidemic is <em>\"totally out of control\"<\/em>. The virus is actively transmitting in more than 60 locations in Guinea, Liberia and Sierra Leone. 
+",
+  "highlight_4":"<small>August 8:<\/small><br> WHO declares the outbreak a <em>\"public health emergency of international concern\"<\/em>.  MSF calls for this to be \"urgently translated into action\".",
+  "highlight_5":"<small>September 2:<\/small><br> Dr Joanne Liu, MSF international president, appeals to the UN member states in New York to deploy civilian and military biohazard assets to bring the outbreak under control.",
+  "highlight_6":"<small>March 1:<\/small><br> More than <strong>2,300 people<\/strong> have emerged Ebola-free from MSF's centers in Guinea, Liberia and Sierra Leone.",
+  
+  "final_highlight":"<p>Today the epidemic is not yet over.<br> All it takes is one case to reignite the outbreak.<br> A significant challenge remains ahead.<\/p><p>Follow MSF <a href=\"https:\/\/www.facebook.com\/msf.english\/\">on Facebook<\/a> for the latest News.<\/p>",
   "other":"Other",
   "gin":"Guinea",
   "lbr":"Liberia",
@@ -48,8 +50,8 @@
   "tweet_text":"One year ago, MSF started a battle against Ebola. See how it unfolded.",
   "app_desc":"One year ago, MSF started a battle against Ebola. See how it unfolded.",
   "app_img":"app_img",
-  "introduction_1":"On December 26, 2013, a 2-year-old boy fell ill in the remote village of Meliandou, Guinea. He had a high fever, black stools and vomiting.",
-  "introduction_2":"On March 18, 2014, Guinean health officials announced the outbreak of a mysterious hemorrhagic fever.",
-  "introduction_3":"6 days later, Doctors Without Borders is the first NGO to open an emergency treatment center.",
-  "introduction_4":"This is the story of the 1,100 men and women who spent the last year fighting Ebola."
+  "introduction_1":"On December 26, 2013, a 2-year-old boy fell ill in the remote village of Meliandou, Guinea. He had a high fever and was vomiting.",
+  "introduction_2":"On March 18, 2014, Guinean health officials announced the outbreak of a \"mysterious\" disease. ",
+  "introduction_3":"Six days later, Médecins Sans Frontières open the first emergency Ebola treatment center in West Africa.",
+  "introduction_4":"This is the story of thousands of people who spent the last year fighting Ebola."
 }

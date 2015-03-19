@@ -28,6 +28,7 @@
   "language":"language",
   "by_jpp":"Made by Journalism++",
   "date_format":"yyyy-MM-dd",
+  "launch_animation": "Launch the animation",
   "highlight_1":"<small>May 12:<\/small><br> First case in Conakry, a city of 2 million.",
   "highlight_2":"<small>June 21:<\/small><br> The epidemic is <em>\"totally out of control\"<\/em>, MSF warns.",
   "highlight_3":"<small>July 20:<\/small><br> The epidemic reaches Lagos. Population: 10 million",

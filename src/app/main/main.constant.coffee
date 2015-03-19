@@ -39,7 +39,7 @@ angular.module "msfEbola"
       tiles:
         name: 'CartoDB.Positron'
         type: 'sxyz'
-        url: "https:\/\/a.tiles.mapbox.com\/v3\/mapbox.world-light\/{z}\/{x}\/{y}.png",
+        url: "https:\/\/a.tiles.mapbox.com\/v3\/mapbox.world-light\/{z}\/{x}\/{y}.png?access_token=pk.eyJ1IjoianBsdXNwbHVzIiwiYSI6ImtUcW9EMlkifQ.xWvwXs8dsVHnIvpDXkGvEg",
         options:
           attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
           subdomains: 'abcd'

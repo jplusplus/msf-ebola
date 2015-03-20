@@ -1,5 +1,5 @@
 angular.module "msfEbola"
-  .controller "MainCtrl", ($scope, $rootScope, $compile, $stateParams, $timeout, leafletData, main, days, centers, highlights) ->
+  .controller "MainCtrl", ($scope, $rootScope, $compile, $stateParams, $timeout, leafletData, main, days, aggregation, centers, highlights) ->
     # Used to create a center marker
     createCenter = (center)->
       # A day must be selected
@@ -56,39 +56,15 @@ angular.module "msfEbola"
     # Last data relative to the current day
     $scope.day = null
     # Create a slot for every weeks
-    $scope.weeks = {}
-    # Count weeks
-    weeksCount = 0
-    # Extract week date from the first day of each week
-    for data in days
-      unless data.day % 7
-        ++weeksCount
-        # Number of new cases this week
-        data.cases = 0
-        data.places = []
-        # week.victims = new Array(bundles)
-        for key, zone of data.regional_data
-          # Count new cases for each zone
-          if zone.weekly_new_cases?
-            data.cases += Math.max(1*zone.weekly_new_cases, 0)
-            # Save the zone into an array for ordering
-            zone.code = key
-            data.places.push zone
-        # Cases are bundled by stack of 10 cases
-        victims = Math.max 0, Math.ceil(data.cases/10)
-        # Create an array of X empty rows
-        data.victims = new Array victims
-        # Save the starting date of this week
-        data.start = new Date data.timestamp*1000
-        data.end = new Date data.timestamp*1000 + 7 * 24 * 60 * 60 * 1000
-        # Save the date for this week
-        $scope.weeks[data.timestamp] = data
+    $scope.weeks = aggregation.weeks
+    # Get weeks count
+    $scope.weeksCount = aggregation.weeksCount
     # Create month ticks
     $scope.monthTicks = []
     # Find date bounds
-    start = _.min($scope.weeks, "start").start
-    end   = _.max($scope.weeks, "end").end
-    delta = end.getTime() - start.getTime()
+    start = new Date(aggregation.start)
+    end   = new Date(aggregation.end)
+    delta = aggregation.end - aggregation.start
     # Iterate over years
     for year in [ start.getFullYear() .. end.getFullYear() ]
       # Iterate over months
@@ -103,12 +79,10 @@ angular.module "msfEbola"
           date = new Date year, month + 1
           # Add the month position
           $scope.monthTicks.push((date.getTime() - start.getTime()) / delta)
-    # Save the week count into the scope
-    $scope.weeksCount = weeksCount
     # Map's settings
     $scope.settings = main.settings
     # The given slot number must be smaller than the progress
-    $scope.progressFilter = (index)-> (index+1)/weeksCount <= $scope.progress/100
+    $scope.progressFilter = (index)-> (index+1)/aggregation.weeksCount <= $scope.progress/100
     # The given highlight is visible only for a moment
     $scope.highlightFilter = (highlight)->
       highlight.date_start <= $scope.today.getTime() and
@@ -123,7 +97,7 @@ angular.module "msfEbola"
       # Create a new date object
       start = new Date do main.start.getTime
       # Calculate the number of day spend
-      daysCount = (weeksCount * 7) * $scope.progress/100
+      daysCount = (aggregation.weeksCount * 7) * $scope.progress/100
       # And add the days to the date
       start.setDate start.getDate() + daysCount
       # Then returns the new datte
@@ -149,6 +123,8 @@ angular.module "msfEbola"
         $scope.day = data
       # Customize icons for each center
       $scope.centers = _.map centers, createCenter
+      # Remove empty one
+      $scope.centers = _.filter $scope.centers, (c)-> c?
       # Find the last highlight
       highlight = do $scope.lastHighlight
       # There is a new highlight

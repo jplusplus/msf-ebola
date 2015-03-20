@@ -1,6 +1,7 @@
 'use strict';
 
 var gulp = require('gulp');
+var    _ = require('lodash');
 
 var paths = gulp.paths;
 
@@ -80,18 +81,82 @@ gulp.task('misc', function () {
     .pipe(gulp.dest(paths.dist + '/'));
 });
 
-gulp.task('csv', function(){
+
+gulp.task('assets:csv', function(){
   return gulp.src(['src/assets/csv/*.csv'])
     .pipe($.convert({ from: 'csv', to: 'json' }))
     .pipe(gulp.dest(paths.tmp + '/serve/assets/json/'))
     .pipe(gulp.dest(paths.dist + '/assets/json/'));
 });
 
-gulp.task('assets', ['csv'], function () {
-  return gulp.src('src/assets/{fonts,json}/**/*')
+gulp.task('assets:copy', function() {
+  return gulp.src(['src/assets/{fonts,json}/**/*'])
     .pipe(gulp.dest(paths.dist + '/assets/'))
     .pipe(gulp.dest(paths.tmp + '/serve/assets/'));
 });
+
+gulp.task('assets:days', ['assets:copy'], function(){
+  return gulp.src(['src/assets/json/days.json'])
+    .pipe($.jsonEditor(function(days) {
+      // Transform the days to an array
+      days = _.reduce(days, function(array, day, timestamp) {
+        day.timestamp = timestamp;
+        array.push(day);
+        return array;
+      }, []);
+
+      return _.sortBy(days, 'day');
+    }))
+    .pipe(gulp.dest(paths.dist + '/assets/json/'))
+    .pipe(gulp.dest(paths.tmp + '/serve/assets/json/'));
+});
+
+gulp.task('assets:aggregation', ['assets:days'], function(){
+  return gulp.src([paths.dist + '/assets/json/days.json'])
+    .pipe($.jsonEditor(function(days) {
+
+      var hash = {
+        weeks: {},
+        weeksCount: 0
+      };
+
+      for (var i = 0, len = days.length; i < len; i++) {
+        var data = days[i];
+        if (!(data.day % 7)) {
+          ++hash.weeksCount;
+          data.cases = 0;
+          data.places = [];
+          var ref = data.regional_data;
+          for( var key in ref) {
+            var zone = ref[key];
+            if (zone.weekly_new_cases != null) {
+              data.cases += Math.max(1 * zone.weekly_new_cases, 0);
+              zone.code = key;
+              data.places.push(zone);
+            }
+          }
+          var victims = Math.max(0, Math.ceil(data.cases / 10));
+          data.victims = new Array(victims);
+          data.start = data.timestamp * 1000
+          data.end = data.timestamp * 1000 + 7 * 24 * 60 * 60 * 1000
+          hash.weeks[data.timestamp] = data;
+        }
+      }
+
+
+      hash.start = _.min(hash.weeks, "start").start
+      hash.end =   _.max(hash.weeks, "end").end
+
+      return hash;
+    }))
+    .pipe($.rename('aggregation.json'))
+    .pipe(gulp.dest(paths.dist + '/assets/json/'))
+    .pipe(gulp.dest(paths.tmp + '/serve/assets/json/'));
+});
+
+
+
+gulp.task('assets', ['assets:csv', 'assets:aggregation']);
 
 
 gulp.task('clean', function (done) {

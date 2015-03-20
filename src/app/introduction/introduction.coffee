@@ -13,4 +13,5 @@ angular.module "msfEbola"
             $http.get "assets/json/days.json", cache: yes
             $http.get "assets/json/highlights.json", cache: yes
             $http.get "assets/json/centers.json", cache: yes
+            $http.get "assets/json/aggregation.json", cache: yes
           ]

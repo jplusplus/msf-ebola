@@ -6,7 +6,7 @@ var    _ = require('lodash');
 var paths = gulp.paths;
 
 var $ = require('gulp-load-plugins')({
-  pattern: ['gulp-*', 'main-bower-files', 'uglify-save-license', 'del']
+  pattern: ['gulp-*', 'main-bower-files', 'uglify-save-license', 'del', 'run-sequence']
 });
 
 gulp.task('partials', ['markups'], function () {
@@ -165,7 +165,14 @@ gulp.task('assets:centers', function(){
 });
 
 
-gulp.task('assets', ['assets:csv', 'assets:aggregation', 'assets:centers']);
+gulp.task('assets', function(cb) {
+  $.runSequence(
+    'assets:csv',
+    'assets:aggregation',
+    'assets:centers',
+    cb
+  );
+});
 
 
 gulp.task('clean', function (done) {

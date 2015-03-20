@@ -18,7 +18,7 @@ full_deploy: crowdin_download
 	git pull --rebase
 	make deploy
 
-zip: build
+zip:
 	(cd dist; zip -r ../msf-ebola.zip .)
 
 crowdin_upload:

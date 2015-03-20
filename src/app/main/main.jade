@@ -16,7 +16,7 @@
     .main__highlights__item(ng-repeat="highlight in ::highlights", ng-show="highlightFilter(highlight)")
       .main__highlights__item__wrapper
         div(ng-bind-html="highlight.translation_key | translate | addTargetBlank")
-    .main__highlights__item(ng-show="displayFinalHighlight || 1")
+    .main__highlights__item(ng-show="displayFinalHighlight")
       .main__highlights__item__wrapper
         div(ng-bind-html="'final_highlight' | translate | addTargetBlank")
         .text-center

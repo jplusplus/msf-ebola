@@ -13,12 +13,12 @@
         | &nbsp; {{ 'five_admitted' | translate }}
 
   .main__highlights
-    .main__highlights__item(ng-repeat="highlight in highlights", ng-show="highlightFilter(highlight)")
+    .main__highlights__item(ng-repeat="highlight in ::highlights", ng-show="highlightFilter(highlight)")
       .main__highlights__item__wrapper
-        div(ng-bind-html="highlight.translation_key | translate")
-    .main__highlights__item(ng-show="displayFinalHighlight")
+        div(ng-bind-html="highlight.translation_key | translate | addTargetBlank")
+    .main__highlights__item(ng-show="displayFinalHighlight || 1")
       .main__highlights__item__wrapper
-        div(ng-bind-html="'final_highlight' | translate")
+        div(ng-bind-html="'final_highlight' | translate | addTargetBlank")
         .text-center
           a.btn.btn-primary(ng-click="displayFinalHighlight = false")
             | {{ 'explore_data' | translate }}

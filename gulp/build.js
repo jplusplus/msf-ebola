@@ -155,8 +155,17 @@ gulp.task('assets:aggregation', ['assets:days'], function(){
 });
 
 
+gulp.task('assets:centers', function(){
+  return gulp.src(['src/assets/json/centers.json'])
+    .pipe($.jsonEditor(function(centers) {
+      return _.filter(centers, {type: 'CTE'})
+    }))
+    .pipe(gulp.dest(paths.dist + '/assets/json/'))
+    .pipe(gulp.dest(paths.tmp + '/serve/assets/json/'));
+});
 
-gulp.task('assets', ['assets:csv', 'assets:aggregation']);
+
+gulp.task('assets', ['assets:csv', 'assets:aggregation', 'assets:centers']);
 
 
 gulp.task('clean', function (done) {

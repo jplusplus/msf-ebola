@@ -21,6 +21,4 @@ angular.module "msfEbola"
           # Data aggregated by weeks
           aggregation: ($http)-> $http.get("assets/json/aggregation.json", cache: yes).then (d)-> d.data
           # Data per center
-          centers: ($http)-> $http.get("assets/json/centers.json", cache: yes).then (d)->
-            # Remove support and transit center
-            _.filter d.data, type: 'CTE'
+          centers: ($http)-> $http.get("assets/json/centers.json", cache: yes).then (d)-> d.data

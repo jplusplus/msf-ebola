@@ -11,7 +11,7 @@ angular.module "msfEbola"
         centerData = $scope.day.centers[center.name]
         # Count by types
         staff = Math.ceil(centerData.staff_count / 5)
-        admitted = Math.ceil(centerData.weekly_new_admissions_rolling_avg / 5)
+        admitted = Math.ceil(centerData.weekly_new_confirmed_smoothed / 5)
         # Create the icon using a template to visualize data
         center.icon = angular.extend angular.copy(main.iconCte),
           # Generate the content of this icon
@@ -106,7 +106,7 @@ angular.module "msfEbola"
     $scope.figureStyle = (figure)->
       return unless $scope.day?
       data = $scope.day.regional_data
-      total = data.death_total + data.cases_total + data.admitted_msf_cumulative_w + data.recovered_msf_cumulative
+      total = data.death_total + data.cases_total + data.confirmed_msf_cumulative + data.recovered_msf_cumulative
       if total is 0
         width: Math.round(100/4) + "%"
       else

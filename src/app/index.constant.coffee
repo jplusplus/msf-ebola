@@ -19,5 +19,6 @@ angular.module "msfEbola"
       "ro"
       "ru"
       "sv"
+      "zh"
       # endinject
     ]

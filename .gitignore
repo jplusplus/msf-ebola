@@ -6,3 +6,4 @@ dist/
 crowdin.yaml
 .divshot-cache
 *.zip
+*.pyc

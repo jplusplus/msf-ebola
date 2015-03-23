@@ -18,15 +18,15 @@ div(ng-controller="MenuCtrl")
 
     ul.menu__social.list-inline.text-center
       li
-        a
+        a(href="{{ 'twitter_url' | translate }}", target="_blank")
           i.fa.fa-fw.fa-twitter
           span.sr-only Twitter
       li
-        a
+        a(href="{{ 'facebook_url' | translate }}", target="_blank")
           i.fa.fa-fw.fa-facebook
           span.sr-only Facebook
       li
-        a
+        a(href="{{ 'gplus_url' | translate }}", target="_blank")
           i.fa.fa-fw.fa-google-plus
           span.sr-only Google+
 

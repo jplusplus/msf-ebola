@@ -5,6 +5,7 @@ import csv
 import itertools, json
 import utils_ebola
 import sys
+import datetime
 import urllib
 base_url = "https://docs.google.com/spreadsheets/d/1GcYq21TPdVAqIgNB3hAbS8xFkKExB7HtiB8CPHe6Ouw/export?"
 urllib.urlretrieve(base_url + "gid=1687475652&format=csv", "Staff.csv")
@@ -144,7 +145,15 @@ json_data = {}
 recovered_msf_cumulative = 0
 confirmed_msf_cumulative = 0
 confirmed_msf_cumulative_w = 0
-weekly_new_confirmed_prev = 0
+weekly_new_confirmed_prev = {}
+step_number = 0
+
+#Init weekly_new_confirmed_prev
+i =0
+while i < len(centers):
+	center = centers[i]
+	i += 1
+	weekly_new_confirmed_prev[center["name"]] = 0
 
 start_date = 1395446400 # Mar 22, 2014
 
@@ -159,7 +168,8 @@ table_file_2 = csv.reader(file_2_csv)
 
 
 for day in range(0,last_day):
-	sys.stdout.write("\nday: "+str(day))
+	sys.stdout.write("\nday\t"+str(day) + "\t")
+
 	# increment the unix timestamp
 	date = start_date + day * 86400
 
@@ -199,12 +209,14 @@ for day in range(0,last_day):
 				weekly_dead = int(lower_bound_row[center["position_file_1"] + 2])
 
 		#computes a smoothed version of the number of MSF confirmed cases
-		weekly_new_confirmed_smoothed = int(utils_ebola.evolution(weekly_new_confirmed_prev, weekly_new_confirmed, 7, day % 7))
-
+		
+		step_number = datetime.datetime.fromtimestamp(date).weekday() + 1
+		weekly_new_confirmed_smoothed = int(utils_ebola.evolution(weekly_new_confirmed_prev[center["name"]], weekly_new_confirmed, 7, step_number))
+		sys.stdout.write(str(step_number) + "\t" + center["name"] + "\t" + str(weekly_new_confirmed_smoothed) + "\t" + str(weekly_new_confirmed) + "\t" + str(weekly_new_confirmed_prev[center["name"]]) + "\t")
 
 		if day % 7 == 0:
 			recovered_msf_cumulative += weekly_recovered
-			weekly_new_confirmed_prev = weekly_new_confirmed
+			weekly_new_confirmed_prev[center["name"]] = weekly_new_confirmed
 			confirmed_msf_cumulative += weekly_new_confirmed
 			confirmed_msf_cumulative_w = confirmed_msf_cumulative_w + weekly_new_confirmed - weekly_dead - weekly_recovered
 	
@@ -246,8 +258,6 @@ for day in range(0,last_day):
 	while i < len(countries):
 		country = countries[i]
 		i += 1
-
-		sys.stdout.write(" " + country)
 
 		filename = country +".csv"
 		file_csv = open(filename, "rb")

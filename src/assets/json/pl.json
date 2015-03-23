@@ -3,7 +3,7 @@
   "center":"Treatment Center",
   "administrative_center":"Transit and support center",
   "five_staff":"5 MSF International Staff",
-  "five_admitted":"5 new weekly admissions",
+  "five_admitted":"5 new weekly admissions in MSF treatment centers",
   "dead":"Since March 2014,<br \/>{{death_total}} died of Ebola",
   "cases":"{{cases_total}} contracted<br \/>the virus",
   "admitted_by_msf":"{{admitted_msf_cumulative}} confirmed cases <br \/>were admitted by MSF",

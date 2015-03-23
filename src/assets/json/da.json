@@ -3,7 +3,7 @@
   "center":"Behandlingscenter",
   "administrative_center":"Transitcenter",
   "five_staff":"5 internationale medarbejdere",
-  "five_admitted":"5 nye indlæggelser om ugen",
+  "five_admitted":"5 new weekly admissions in MSF treatment centers",
   "dead":"Siden marts 2014 har, <br \/> {{death_total}} mistet livet på grund af ebola",
   "cases":"{{cases_total}} er blevet smittede<br \/>",
   "admitted_by_msf":"{{admitted_msf_cumulative}}bekræftede og mistænkte patienter <br \/>er blevet indlagt på vores centre",

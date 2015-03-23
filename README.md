@@ -17,6 +17,13 @@ You can now start serving static files with gulp!
 make run
 ```
 
+## Generate the data files
+
+```bash
+cd data
+python convert_data.py
+```
+
 ## Configure Crowdin *(optional)*
 
 This project relies on Crowdin to manage interface translations. To be able to submit and download translations from Crowdin, you have to follow 2 simple steps.

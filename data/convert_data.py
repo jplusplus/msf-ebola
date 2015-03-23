@@ -191,8 +191,8 @@ for day in range(0,last_day):
 			file_1_csv.seek(0)
 			upper_bound_row = next(itertools.islice(table_file_1, closest_upper_bound["numrow"], None))
 
-			if lower_bound_row[center["position_file_1"] + 1] != "":
-				weekly_new_confirmed = int(lower_bound_row[center["position_file_1"] + 1])
+			if lower_bound_row[center["position_file_1"]] != "":
+				weekly_new_confirmed = int(lower_bound_row[center["position_file_1"]])
 			if lower_bound_row[center["position_file_1"] + 3] != "":
 				weekly_recovered = int(lower_bound_row[center["position_file_1"] + 3])
 			if lower_bound_row[center["position_file_1"] + 2] != "":
@@ -273,9 +273,9 @@ for day in range(0,last_day):
 			numday = day - closest_lower_bound["numday"]
 
 			#computes cases
-			value_cases = utils_ebola.evolution(lower_bound_row[4], upper_bound_row[4], steps, numday)
+			value_cases = utils_ebola.evolution(lower_bound_row[2], upper_bound_row[2], steps, numday)
 			#computes deaths
-			value_deaths = utils_ebola.evolution(lower_bound_row[5], upper_bound_row[5], steps, numday)
+			value_deaths = utils_ebola.evolution(lower_bound_row[3], upper_bound_row[3], steps, numday)
 
 			cases_total += value_cases
 			death_total += value_deaths

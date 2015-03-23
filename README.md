@@ -24,6 +24,8 @@ cd data
 python convert_data.py
 ```
 
+You can browse through the data [in this spreadsheet](https://docs.google.com/spreadsheets/d/1GcYq21TPdVAqIgNB3hAbS8xFkKExB7HtiB8CPHe6Ouw/edit#gid=921239505).
+
 ## Configure Crowdin *(optional)*
 
 This project relies on Crowdin to manage interface translations. To be able to submit and download translations from Crowdin, you have to follow 2 simple steps.

@@ -137,6 +137,25 @@ centers = [
 	}
 ]
 
+#Int'l staff at Magburaka
+magburaka_staff = {
+	"254":10,
+	"261":17,
+	"268":25,
+	"275":22,
+	"282":24,
+	"289":29,
+	"296":25,
+	"303":31,
+	"310":25,
+	"317":25,
+	"324":23,
+	"331":23,
+	"338":19,
+	"345":16,
+	"352":18
+}
+
 countries = ["SLE", "GIN", "LBR", "Other"]
 
 last_day = 360
@@ -146,6 +165,7 @@ recovered_msf_cumulative = 0
 confirmed_msf_cumulative = 0
 confirmed_msf_cumulative_w = 0
 weekly_new_confirmed_prev = {}
+staff_count_magburaka_prev = 0
 step_number = 0
 
 #Init weekly_new_confirmed_prev
@@ -212,7 +232,6 @@ for day in range(0,last_day):
 		
 		step_number = datetime.datetime.fromtimestamp(date).weekday() + 1
 		weekly_new_confirmed_smoothed = int(utils_ebola.evolution(weekly_new_confirmed_prev[center["name"]], weekly_new_confirmed, 7, step_number))
-		sys.stdout.write(str(step_number) + "\t" + center["name"] + "\t" + str(weekly_new_confirmed_smoothed) + "\t" + str(weekly_new_confirmed) + "\t" + str(weekly_new_confirmed_prev[center["name"]]) + "\t")
 
 		if day % 7 == 0:
 			recovered_msf_cumulative += weekly_recovered
@@ -248,6 +267,16 @@ for day in range(0,last_day):
 			if (row[3] != "start"):
 				if (day >= int(row[3]) and day <= int(row[4]) and center["name"] == row[5]):
 					staff_count+=1
+
+		# Special Case Magburaka!
+		if center["name"] == "Magburaka":
+
+			if (str(day) in magburaka_staff.keys()):
+				staff_count = magburaka_staff[str(day)]
+				staff_count_magburaka_prev = staff_count
+			else:
+				staff_count = staff_count_magburaka_prev
+			sys.stdout.write("\tMagburaka: \t" + str(staff_count) + "\t")
 
 		day_obj["centers"][center["name"]].update({"staff_count": staff_count})
 

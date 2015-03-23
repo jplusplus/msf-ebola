@@ -4,13 +4,16 @@
     ul.list-unstyled
       li.main__legend__item
         i.fa.fa-fw.fa-dot-circle-o.text-success
-        | &nbsp; {{ 'center' | translate }}
+        | &nbsp;
+        span(ng-bind-html="'center' | translate")
       li.main__legend__item.main__legend__item--staff
         i.fa.fa-fw.fa-male.text-success
-        | &nbsp; {{ 'five_staff' | translate }}
+        | &nbsp;
+        span(ng-bind-html="'five_staff' | translate")
       li.main__legend__item
         i.fa.fa-fw.fa-male.text-primary
-        | &nbsp; {{ 'five_admitted' | translate }}
+        | &nbsp;
+        span(ng-bind-html="'five_admitted' | translate")
 
   .main__highlights
     .main__highlights__item(ng-repeat="highlight in ::highlights", ng-show="highlightFilter(highlight)")

@@ -23,6 +23,11 @@ angular.module "msfEbola"
       popupAnchor:  [0, 0]
       html: '<i class="main__map__center__marker fa fa-circle"></i>'
     centerPopup: '<div ng-include="\'app/main/popup/popup.html\'"></div>'
+    final:
+      cases_total: 24666
+      death_total: 10179
+      confirmed_msf: 4963
+      treated_msf: 2329
     settings:
       maxbounds:
         southWest: L.latLng(90, 180)

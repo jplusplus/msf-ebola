@@ -61,6 +61,8 @@ angular.module "msfEbola"
     $scope.weeksCount = aggregation.weeksCount
     # Create month ticks
     $scope.monthTicks = []
+    # Final figure data
+    $scope.final = main.final
     # Find date bounds
     start = new Date(aggregation.start)
     end   = new Date(aggregation.end)
@@ -104,13 +106,8 @@ angular.module "msfEbola"
       start
     # Get the width style of the given figure in propertion to the total
     $scope.figureStyle = (figure)->
-      return unless $scope.day?
-      data = $scope.day.regional_data
-      total = data.death_total + data.cases_total + data.confirmed_msf_cumulative + data.recovered_msf_cumulative
-      if total is 0
-        width: Math.round(100/4) + "%"
-      else
-        width: Math.round(figure/total*100) + "%"
+      total = main.final.death_total + main.final.cases_total + main.final.confirmed_msf + main.final.treated_msf
+      width: Math.round(figure/total*100) + "%"
     # Only show place with new cases
     $scope.popoverFilter = (place)-> ( place.weekly_new_cases ? 0 ) > 0
     # Update the day data

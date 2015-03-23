@@ -3,7 +3,7 @@
   "center":"Centre de traitement",
   "administrative_center":"Centre de transit et soutien",
   "five_staff":"5 personnels internationaux de MSF",
-  "five_admitted":"5 nouvelles admissions hebdomadaires dans les centres de traitement de MSF",
+  "five_admitted":"5 nouvelles admissions hebdomadaires<br \/> dans les centres de traitement de MSF",
   "dead":"Depuis mars 2014, l'épidémie<br \/>a fait {{death_total}} morts",
   "cases":"{{cases_total}} personnes ont contracté <br \/> le virus",
   "admitted_by_msf":"{{admitted_msf_cumulative}} cas confirmés <br \/> ont été pris en charge par MSF",

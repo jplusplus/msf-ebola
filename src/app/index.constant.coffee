@@ -7,7 +7,6 @@ angular.module "msfEbola"
       "sv"
       "es"
       "da"
-      "zh"
       # _inject:languages
       # endinject
     ]

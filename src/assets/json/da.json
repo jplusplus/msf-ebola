@@ -6,8 +6,8 @@
   "five_admitted":"5 nye indlæggelser om ugen på vores behandlingscentre",
   "dead":"Siden marts 2014 har, <br \/> {{death_total}} mistet livet på grund af ebola",
   "cases":"{{cases_total}} er blevet smittede<br \/>",
-  "admitted_by_msf":"{{admitted_msf_cumulative}}bekræftede og mistænkte patienter <br \/>er blevet indlagt på vores centre",
-  "cured_by_msf":"{{recovered_msf_cumulative}}har overlevet",
+  "admitted_by_msf":"{{admitted_msf_cumulative}} bekræftede og mistænkte patienter <br \/>er blevet indlagt på vores centre",
+  "cured_by_msf":"{{recovered_msf_cumulative}} har overlevet",
   "explore_data":"Se mere",
   "january":"Januar",
   "february":"Februar",
@@ -31,7 +31,7 @@
   "back_to_map":"tilbage til kortet",
   "language":"sprog",
   "by_jpp":"Produceret af Journalism++",
-  "date_format":"åååå-mm-dd",
+  "date_format":"dd-MM-yyyy",
   "launch_animation":"Start animationen",
   "highlight_1":"<small>27. marts<\/small><br> De første sager om ebola bliver registreret i Conakry, hovedstaden i Guinea, som har mere end to millioner indbyggere. ",
   "highlight_2":"<small>31. marts:<\/small><br>Vi advarer om at det er en epidemi af <em>\"hidtil usete proportioner\".<\/em>",
@@ -78,5 +78,6 @@
   "pt_display":"Portugisisk",
   "ro_display":"Romænsk",
   "ru_display":"Russisk",
-  "sv_display":"Svensk"
+  "sv_display":"Svensk",
+  "zh_display":"Kinesisk"
 }

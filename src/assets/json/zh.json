@@ -7,7 +7,7 @@
   "dead":"自2014年3月<br \/>，已有 {{death_total}}人死於伊波拉",
   "cases":"{{cases_total}} 人似<br \/>感染了病毒",
   "admitted_by_msf":"無國界醫生接收了{{admitted_msf_cumulative}}宗確診個案<br \/>",
-  "cured_by_msf":"當中<br \/>{{{{recovered_msf_cumulative}}人已康復",
+  "cured_by_msf":"當中<br \/>{{recovered_msf_cumulative}}人已康復",
   "explore_data":"詳細數字",
   "january":"1 月",
   "february":"2 月",

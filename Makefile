@@ -14,7 +14,7 @@ deploy: build
 
 
 full_deploy: crowdin_download
-	git commit ./locale -m "Updated locale" || true
+	git commit ./src/assets/json/ -m "Updated locale" || true
 	git pull --rebase
 	make deploy
 

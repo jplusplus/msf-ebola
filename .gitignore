@@ -1,9 +1,0 @@
-node_modules/
-bower_components/
-.sass-cache/
-.tmp/
-dist/
-crowdin.yaml
-.divshot-cache
-*.zip
-*.pyc

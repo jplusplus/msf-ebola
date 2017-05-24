@@ -1,0 +1,42 @@
+[
+  {
+    "date_start": "2014-03-27",
+    "translation_key": "highlight_1",
+    "duration": "4000"
+  },
+  {
+    "date_start": "2014-03-31",
+    "translation_key": "highlight_2",
+    "duration": "4000"
+  },
+  {
+    "date_start": "2014-06-21",
+    "translation_key": "highlight_3",
+    "duration": "5000"
+  },
+  {
+    "date_start": "2014-08-08",
+    "translation_key": "highlight_4",
+    "duration": "6000"
+  },
+  {
+    "date_start": "2014-09-02",
+    "translation_key": "highlight_5",
+    "duration": "6000"
+  },
+  {
+    "date_start": "2014-09-16",
+    "translation_key": "highlight_6",
+    "duration": "4000"
+  },
+  {
+    "date_start": "2014-12-17",
+    "translation_key": "highlight_7",
+    "duration": "4000"
+  },
+  {
+    "date_start": "2015-03-01",
+    "translation_key": "highlight_8",
+    "duration": "4000"
+  }
+]

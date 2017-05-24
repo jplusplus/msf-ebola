@@ -1,6 +1,0 @@
-{
-  "name": "msf-ebola",
-  "root": "./dist",
-  "clean_urls": false,
-  "prerender": true
-}

@@ -1,0 +1,73 @@
+[{
+  "day_closed": false,
+  "display_name": "Conakry",
+  "name": "Conakry - Guinea",
+  "lat": 9.535601,
+  "position_file_1": 8,
+  "lng": -13.683686,
+  "day_opened": 7,
+  "type": "CTE"
+}, {
+  "day_closed": false,
+  "display_name": "Freetown",
+  "name": "Freetown - Sierra Leone",
+  "lat": 8.484444,
+  "position_file_1": 20,
+  "lng": -13.234444,
+  "day_opened": 266,
+  "type": "CTE"
+}, {
+  "day_closed": 238,
+  "display_name": "Foya",
+  "name": "Foya - Liberia",
+  "lat": 8.359997,
+  "position_file_1": 12,
+  "lng": -10.20675,
+  "day_opened": 77,
+  "type": "CTE"
+}, {
+  "day_closed": 308,
+  "display_name": "Bo",
+  "name": "Bo - Sierra Leone",
+  "lat": 7.955179,
+  "position_file_1": 28,
+  "lng": -11.740995,
+  "day_opened": 182,
+  "type": "CTE"
+}, {
+  "day_closed": 308,
+  "display_name": "Kailahun",
+  "name": "Kailahun - Sierra Leone",
+  "lat": 8.277222,
+  "position_file_1": 24,
+  "lng": -10.573889,
+  "day_opened": 98,
+  "type": "CTE"
+}, {
+  "day_closed": false,
+  "display_name": "Guéckédou",
+  "name": "Gueckedou - Guinea",
+  "lat": 8.5653717,
+  "position_file_1": 4,
+  "lng": -10.1295126,
+  "day_opened": 0,
+  "type": "CTE"
+}, {
+  "day_closed": false,
+  "display_name": "Monrovia",
+  "name": "Monrovia - Liberia",
+  "lat": 6.239261,
+  "position_file_1": 16,
+  "lng": -10.696578,
+  "day_opened": 147,
+  "type": "CTE"
+}, {
+  "day_closed": false,
+  "display_name": "Magburaka",
+  "name": "Magburaka",
+  "lat": 8.7169,
+  "position_file_1": 32,
+  "lng": -11.94,
+  "day_opened": 268,
+  "type": "CTE"
+}]
